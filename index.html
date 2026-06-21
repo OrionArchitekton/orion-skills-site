@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://orion-skills.danmercede.com/" />
+  <title>orion-skills — Claude Code skills for disciplined agent workflows</title>
+  <meta name="description"
+    content="orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; no plugin or marketplace required." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="orion-skills" />
+  <meta property="og:title" content="orion-skills — Claude Code skills for disciplined agent workflows" />
+  <meta property="og:description"
+    content="A small, curated, MIT-licensed library of original Claude Code skills — finish discipline, scope control, durable handoffs — loaded on demand. No plugin or marketplace." />
+  <meta property="og:url" content="https://orion-skills.danmercede.com/" />
+  <meta property="og:image" content="https://orion-skills.danmercede.com/og-card.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="orion-skills — curated Claude Code skills for disciplined agent workflows" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@danmercede" />
+  <meta name="twitter:creator" content="@danmercede" />
+  <meta name="twitter:title" content="orion-skills — Claude Code skills for disciplined agent workflows" />
+  <meta name="twitter:description"
+    content="A small, curated, MIT-licensed library of original Claude Code skills — finish discipline, scope control, durable handoffs — loaded on demand. No plugin or marketplace." />
+  <meta name="twitter:image" content="https://orion-skills.danmercede.com/og-card.png" />
+  <meta name="twitter:image:alt" content="orion-skills — curated Claude Code skills for disciplined agent workflows" />
+
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Structured data: SoftwareSourceCode for the skills library, backlinking
+       author/publisher to the hub Person (danmercede.com/#person).
+       Static so crawlers see it without executing JS. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://orion-skills.danmercede.com/#software",
+          "name": "orion-skills",
+          "description": "A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each skill is a folder with a SKILL.md the agent loads on demand; installed by copying into ~/.claude/skills/ (no plugin or marketplace).",
+          "url": "https://orion-skills.danmercede.com/",
+          "codeRepository": "https://github.com/OrionArchitekton/orion-skills",
+          "programmingLanguage": "Markdown",
+          "runtimePlatform": "Claude Code",
+          "license": "https://opensource.org/licenses/MIT",
+          "author": { "@id": "https://www.danmercede.com/#person" },
+          "maintainer": { "@id": "https://www.danmercede.com/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://www.danmercede.com/#person",
+          "name": "Dan Mercede",
+          "url": "https://www.danmercede.com"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Fonts: Inter for UI, JetBrains Mono for code/terminal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind is bundled at build time (compiled stylesheet emitted by Vite);
+       no render-blocking CDN JIT compiler. Base/print styles live in index.css. -->
+</head>
+
+<body class="bg-white text-neutral-900 antialiased">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
