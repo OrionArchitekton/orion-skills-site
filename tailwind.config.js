@@ -25,6 +25,14 @@ export default {
           100: '#f3f4f6',
           900: '#111827',
         },
+        // Dan Mercede brand copper (logo pack). Single accent on the otherwise
+        // monochrome page: primary CTA, section markers, link hovers.
+        copper: {
+          light: '#FFC08B',
+          DEFAULT: '#E68249',
+          dark: '#B95122',
+          deep: '#993F17',
+        },
       },
     },
   },

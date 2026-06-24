@@ -4,7 +4,7 @@ import type { DemoLine } from './types';
 
 const SectionTitle: React.FC<{ index: string; title: string }> = ({ index, title }) => (
   <h2 className="text-xs uppercase tracking-widest text-neutral-500 font-mono mb-4 mt-12 border-b border-neutral-200 pb-2">
-    <span aria-hidden="true">{index} // </span>
+    <span aria-hidden="true" className="text-copper-dark">{index} // </span>
     {title}
   </h2>
 );
@@ -100,7 +100,7 @@ const App: React.FC = () => {
               href={cta.primaryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors"
+              className="inline-flex items-center justify-center rounded-md bg-copper-dark px-5 py-2.5 text-sm font-medium text-white hover:bg-copper-deep transition-colors"
             >
               {cta.primaryLabel}
               <span className="sr-only"> (opens in a new tab)</span>
@@ -109,7 +109,7 @@ const App: React.FC = () => {
               href={cta.secondaryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-900 hover:border-neutral-900 transition-colors"
+              className="inline-flex items-center justify-center rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-900 hover:text-copper-dark hover:border-copper-dark transition-colors"
             >
               {cta.secondaryLabel}
               <span className="sr-only"> (opens in a new tab)</span>
@@ -205,7 +205,7 @@ const App: React.FC = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-700 underline decoration-1 decoration-neutral-300 hover:decoration-neutral-900 underline-offset-4 transition-all"
+                  className="text-neutral-700 underline decoration-1 decoration-neutral-300 hover:decoration-copper-dark underline-offset-4 transition-all"
                 >
                   {link.label}
                   <span className="sr-only"> (opens in a new tab)</span>
