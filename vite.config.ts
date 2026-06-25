@@ -7,6 +7,7 @@ import { bodyBake } from './vite-plugin-bodybake';
 // `define` block is identity-spoke-specific and is intentionally dropped here —
 // this product microsite needs no API key.
 export default defineConfig({
+  base: '/works/orion-skills/',
   server: {
     port: 3000,
     host: '0.0.0.0',

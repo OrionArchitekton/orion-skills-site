@@ -17,7 +17,7 @@ export const PRODUCT_DATA: ProductData = {
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
     'Open source (MIT) · 10 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
-  canonical: 'https://orion-skills.danmercede.com/',
+  canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
 
