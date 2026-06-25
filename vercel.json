@@ -1,4 +1,12 @@
 {
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [{ "type": "host", "value": "orion-skills.danmercede.com" }],
+            "destination": "https://www.danmercede.com/works/orion-skills/$1",
+            "permanent": true
+        }
+    ],
     "headers": [
         {
             "source": "/assets/(.*)",
