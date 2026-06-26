@@ -116,7 +116,7 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'tdd-loop',
       description:
-        'Drives a spec to a CI-green PR through a self-correcting RED→GREEN→REFACTOR loop where every “green” binds to an artifact — a computed diff fed to review, a clean secret-scan report, a captured test exit code — never self-report. Self-contained and harness-agnostic.',
+        'Drives a spec to a CI-green PR through a self-correcting RED→GREEN→REFACTOR loop where every “green” binds to an artifact — a computed diff fed to review, a clean secret-scan report, a captured test exit code — never self-reporting. Self-contained and harness-agnostic.',
     },
   ],
 
