@@ -16,7 +16,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 11 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 13 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -117,6 +117,16 @@ export const PRODUCT_DATA: ProductData = {
       name: 'tdd-loop',
       description:
         'Drives a spec to a CI-green PR through a self-correcting RED→GREEN→REFACTOR loop where every “green” binds to an artifact — a computed diff fed to review, a clean secret-scan report, a captured test exit code — never self-reporting. Self-contained and harness-agnostic.',
+    },
+    {
+      name: 'oss-loop',
+      description:
+        'Carries an OSS tool from idea to a shipped, published release through one operator-gates-only loop — the agent does everything reversible, a human touches only the irreversible gates (publish, merge, tag, DNS, secrets). Composes your prompt, research, TDD, and launch skills; verifies the live source of truth before “shipped”.',
+    },
+    {
+      name: 'chain-launcher',
+      description:
+        'After a research/decision plan is approved, surfaces the exact next command for the implement phase so it isn’t re-derived — a frictionless handoff that never auto-crosses the human approval gate.',
     },
   ],
 
