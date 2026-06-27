@@ -126,7 +126,7 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'chain-launcher',
       description:
-        'After a research/decision plan is approved, surfaces the exact next command for the implement phase so it isn’t re-derived — a frictionless hand-off that never auto-crosses the human approval gate.',
+        'After a research/decision plan is approved, surfaces the exact next command for the implement phase so it isn’t re-derived — a frictionless handoff that never auto-crosses the human approval gate.',
     },
   ],
 
