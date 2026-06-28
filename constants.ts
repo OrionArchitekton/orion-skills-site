@@ -16,7 +16,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 13 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 14 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -127,6 +127,11 @@ export const PRODUCT_DATA: ProductData = {
       name: 'chain-launcher',
       description:
         'After a research/decision plan is approved, surfaces the exact next command for the implement phase so it isn’t re-derived — a frictionless handoff that never auto-crosses the human approval gate.',
+    },
+    {
+      name: 'tools-router',
+      description:
+        'A periodic recon builds a low-token, auth-aware index of the CLIs and MCP servers an agent can reach — preferring a working CLI over its MCP — and a thin fail-open hook injects it. Redundancy is judged by which side actually works (never existence), and probe output is captured as redacted enums, never raw secrets.',
     },
   ],
 
