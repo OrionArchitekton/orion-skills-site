@@ -16,7 +16,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 18 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 19 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -152,6 +152,11 @@ export const PRODUCT_DATA: ProductData = {
       name: 'design-fail-closed-gate',
       description:
         'Authors unattended and self-policed gates that fail CLOSED by construction: gate on a structured token not free-text prose, bind every green to a re-readable artifact, respect how the harness inverts exit-code semantics, and prove the gate denies before calling it armed.',
+    },
+    {
+      name: 'author-workflow-fanout',
+      description:
+        'Lints a Claude Code Workflow fan-out script before launch: flags an agent() call with no .catch (one rate-limited call rejects the whole run), a budget loop unguarded on budget.total (it runs to the 1000-agent cap), and a missing meta block, and covers the pipeline-vs-barrier and schema-vs-longform judgment a linter cannot.',
     },
   ],
 
