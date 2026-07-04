@@ -1,14 +1,15 @@
 import { ProductData } from './types';
 
 const GITHUB = 'https://github.com/OrionArchitekton/orion-skills';
-const RELEASE = 'https://github.com/OrionArchitekton/orion-skills/releases/tag/v0.2.0';
+const VERSION = 'v0.2.0';
+const RELEASE = GITHUB + '/releases/tag/' + VERSION;
 const AGENTSKILLS = 'https://www.agentskills.io';
 
 /**
  * Single source of truth for the orion-skills microsite.
  *
  * All copy is GROUNDED in the real repo (README.md, the skills/ catalog, and the
- * v0.2.0 GitHub release). orion-skills is a curated skills LIBRARY (not a CLI or
+ * latest GitHub release). orion-skills is a curated skills LIBRARY (not a CLI or
  * package): install = copy a folder into ~/.claude/skills/. No fabricated metrics.
  */
 export const PRODUCT_DATA: ProductData = {
@@ -36,7 +37,7 @@ export const PRODUCT_DATA: ProductData = {
   cta: {
     primaryLabel: 'View on GitHub',
     primaryUrl: GITHUB,
-    secondaryLabel: 'Read the v0.2.0 release',
+    secondaryLabel: 'Read the ' + VERSION + ' release',
     secondaryUrl: RELEASE,
   },
 
@@ -201,7 +202,7 @@ export const PRODUCT_DATA: ProductData = {
 
   links: [
     { label: 'GitHub repository', url: GITHUB, primary: true },
-    { label: 'v0.2.0 release', url: RELEASE, primary: true },
+    { label: VERSION + ' release', url: RELEASE, primary: true },
     { label: 'What are Agent Skills?', url: AGENTSKILLS },
     { label: 'Dan Mercede', url: 'https://www.danmercede.com' },
   ],
