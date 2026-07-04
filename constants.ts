@@ -16,7 +16,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 14 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 15 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -97,6 +97,11 @@ export const PRODUCT_DATA: ProductData = {
       name: 'goal-prompt',
       description:
         'Turns a loose task into a fire-ready autonomous goal prompt: recon-grounded, rails-locked, with a transcript-checkable terminal condition. Builds the prompt; never fires it.',
+    },
+    {
+      name: 'orion-deep-research',
+      description:
+        'Fork of the native deep-research that adds honest abstention accounting (a rate-limited claim is unverified, never refuted), a bounded reflect/knowledge-gap loop, an independent judge-gate that quarantines inconclusive runs, and durable persistence of the cited report to a research vault. Self-contained and harness-agnostic.',
     },
     {
       name: 'pre-compact',
