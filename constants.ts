@@ -16,7 +16,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 15 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 18 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -137,6 +137,21 @@ export const PRODUCT_DATA: ProductData = {
       name: 'tools-router',
       description:
         'A periodic recon builds a low-token, auth-aware index of the CLIs and MCP servers an agent can reach — preferring a working CLI over its MCP — and a thin fail-open hook injects it. Redundancy is judged by which side actually works (never existence), and probe output is captured as redacted enums, never raw secrets.',
+    },
+    {
+      name: 'prove-deploy-is-live',
+      description:
+        'Proves a deploy is actually live via three proofs (version identity, real-route serve, end-to-end behavior), because green CI, docker ps healthy, and /health 200 all stay green while the running artifact is the old image or the real route is dead. Self-contained and harness-agnostic.',
+    },
+    {
+      name: 'prove-control-binds',
+      description:
+        'Proves a gate, hook, monitor, or reaper actually fires by injecting a synthetic violation and watching it block from its own output, never by trusting a green check. Green has two indistinguishable causes: nothing to catch, or catching nothing.',
+    },
+    {
+      name: 'design-fail-closed-gate',
+      description:
+        'Authors unattended and self-policed gates that fail CLOSED by construction: gate on a structured token not free-text prose, bind every green to a re-readable artifact, respect how the harness inverts exit-code semantics, and prove the gate denies before calling it armed.',
     },
   ],
 
