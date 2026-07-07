@@ -17,7 +17,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 19 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 21 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -158,6 +158,16 @@ export const PRODUCT_DATA: ProductData = {
       name: 'author-workflow-fanout',
       description:
         'Lints a Claude Code Workflow fan-out script before launch: flags an agent() call with no .catch (one rate-limited call rejects the whole run), a budget loop unguarded on budget.total (it runs to the 1000-agent cap), and a missing meta block, and covers the pipeline-vs-barrier and schema-vs-longform judgment a linter cannot.',
+    },
+    {
+      name: 'reprobe-stale-premise',
+      description:
+        'Re-probe any claim you did not just verify before acting on it: a handoff premise, a teammate diagnosis, a stale registry state. Any unverified claim is a hypothesis, not a fact.',
+    },
+    {
+      name: 'triage-fanout-verdicts',
+      description:
+        'Read multi-agent fan-out verdicts honestly: an abstention or crashed lens is PENDING, never a verdict. Ships a deterministic triage helper that buckets ship/refute/pending.',
     },
   ],
 
