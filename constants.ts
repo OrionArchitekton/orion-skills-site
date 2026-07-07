@@ -17,7 +17,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 21 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 25 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -168,6 +168,26 @@ export const PRODUCT_DATA: ProductData = {
       name: 'triage-fanout-verdicts',
       description:
         'Read multi-agent fan-out verdicts honestly: an abstention or crashed lens is PENDING, never a verdict. Ships a deterministic triage helper that buckets ship/refute/pending.',
+    },
+    {
+      name: 'office-hours',
+      description:
+        'YC-style product ideation with six forcing questions, wedge and specificity pressure, and a builder brainstorm mode. Saves a design doc before any code is written.',
+    },
+    {
+      name: 'investigate',
+      description:
+        'Systematic debugging in four phases with an Iron Law: no fixes without root cause. For errors, stack traces, and it-was-working-yesterday troubleshooting.',
+    },
+    {
+      name: 'design-consultation',
+      description:
+        'A full design-system consultation covering aesthetic, typography, color, layout, and motion. Produces DESIGN.md as the project design source of truth.',
+    },
+    {
+      name: 'document-release',
+      description:
+        'Post-ship documentation sync. Reads all project docs, cross-references the diff, and updates README and friends to match what actually shipped.',
     },
   ],
 
