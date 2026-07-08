@@ -1,7 +1,7 @@
 import { ProductData } from './types';
 
 const GITHUB = 'https://github.com/OrionArchitekton/orion-skills';
-const VERSION = 'v0.2.0';
+const VERSION = 'v0.5.0';
 const RELEASE = GITHUB + '/releases/tag/' + VERSION;
 const AGENTSKILLS = 'https://www.agentskills.io';
 
@@ -17,7 +17,7 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
   credibility:
-    'Open source (MIT) · 25 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 26 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
     'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
@@ -188,6 +188,11 @@ export const PRODUCT_DATA: ProductData = {
       name: 'document-release',
       description:
         'Post-ship documentation sync. Reads all project docs, cross-references the diff, and updates README and friends to match what actually shipped.',
+    },
+    {
+      name: 'delegate',
+      description:
+        'Hands a scoped subagent, bulk, or background task to a non-Anthropic model CLI (Codex on a ChatGPT plan, Grok on a metered xAI key, or a free local model via Ollama) so it runs off the Anthropic budget with native tool calling, behind a sandbox and env-scrub gate. Shells out to each vendor CLI, not an ANTHROPIC_BASE_URL router-proxy.',
     },
   ],
 
