@@ -47,6 +47,8 @@ export interface ProductData {
     /** Each block is a titled, copy-pasteable command snippet. */
     blocks: { title: string; note?: string; command: string }[];
   };
+  /** Exact portable subset verified by the source project for Codex. */
+  codexStarter: string[];
   commands: CommandRow[];
   demo: {
     heading: string;

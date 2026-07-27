@@ -23,8 +23,14 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Security audit
+        run: npm audit --audit-level=high
+
       - name: Typecheck
         run: npx tsc --noEmit
 
       - name: Build
         run: npm run build
+
+      - name: Contract
+        run: npm run test:contract
