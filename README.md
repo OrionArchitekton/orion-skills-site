@@ -26,6 +26,7 @@ npm run dev
 ## Validation
 
 ```bash
+npm ci
 npm audit --audit-level=high
 npx tsc --noEmit
 npm run build
