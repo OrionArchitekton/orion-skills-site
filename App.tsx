@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PRODUCT_DATA } from './constants';
 import type { DemoLine } from './types';
 
@@ -16,12 +16,19 @@ const CommandBlock: React.FC<{ title: string; note?: string; command: string }> 
   command,
 }) => {
   const [copied, setCopied] = useState(false);
+  const [canCopy, setCanCopy] = useState(false);
+
+  useEffect(() => {
+    setCanCopy(Boolean(navigator.clipboard));
+  }, []);
 
   const copy = () => {
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+    if (canCopy && navigator.clipboard) {
       navigator.clipboard.writeText(command).then(() => {
         setCopied(true);
         window.setTimeout(() => setCopied(false), 1600);
+      }).catch(() => {
+        setCopied(false);
       });
     }
   };
@@ -33,12 +40,14 @@ const CommandBlock: React.FC<{ title: string; note?: string; command: string }> 
         {note && <span className="font-mono text-[11px] text-neutral-500">{note}</span>}
       </div>
       <div className="relative group">
-        <pre className="bg-neutral-900 text-neutral-100 rounded-md p-4 pr-16 overflow-x-auto font-mono text-[13px] leading-relaxed">
+        <pre className="bg-neutral-900 text-neutral-100 rounded-md p-4 pr-16 overflow-x-auto whitespace-pre-wrap break-all font-mono text-[13px] leading-relaxed">
           <code>{command}</code>
         </pre>
         <button
           onClick={copy}
-          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white bg-neutral-900/70 backdrop-blur-sm border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors"
+          disabled={!canCopy}
+          aria-disabled={!canCopy}
+          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white bg-neutral-900/70 backdrop-blur-sm border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:text-neutral-400 disabled:hover:border-neutral-700"
           aria-label={`Copy command: ${title}`}
         >
           {copied ? 'Copied' : 'Copy'}
@@ -66,6 +75,7 @@ const App: React.FC = () => {
     whatItDoes,
     cta,
     quickstart,
+    codexStarter,
     commands,
     demo,
     differentiators,
@@ -170,7 +180,13 @@ const App: React.FC = () => {
 
         {/* 5. Skills */}
         <section>
-          <SectionTitle index="04" title="Skills" />
+          <SectionTitle index="04" title="All 26 Claude Code skills" />
+          <p className="text-sm text-neutral-600 leading-relaxed mb-6">
+            Codex starter set:{' '}
+            <span className="font-mono text-neutral-800">
+              {codexStarter.join(' · ')}
+            </span>
+          </p>
           <dl className="space-y-4">
             {commands.map((cmd) => (
               <div key={cmd.name} className="flex flex-col sm:flex-row sm:gap-6">
@@ -215,7 +231,7 @@ const App: React.FC = () => {
           </ul>
           <div className="flex flex-col sm:flex-row justify-between">
             <p>{footerNote}</p>
-            <p>&copy; {new Date().getFullYear()} Dan Mercede</p>
+            <p>&copy; 2026 Dan Mercede</p>
           </div>
         </footer>
       </main>

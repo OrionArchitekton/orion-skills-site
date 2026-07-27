@@ -23,8 +23,11 @@ for the site surface.
 ## Validation
 
 ```bash
-npm install
+npm ci
+npm audit --audit-level=high
+npx tsc --noEmit
 npm run build
+npm run test:contract
 ```
 
 For docs-only changes, run `git diff --check` at minimum.

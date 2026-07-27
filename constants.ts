@@ -4,23 +4,26 @@ const GITHUB = 'https://github.com/OrionArchitekton/orion-skills';
 const VERSION = 'v0.5.0';
 const RELEASE = GITHUB + '/releases/tag/' + VERSION;
 const AGENTSKILLS = 'https://www.agentskills.io';
+const CODEX_VERIFIED_REF = 'c334ca499beed06892ba0a51b2698ce75e4a3e05';
+const CODEX_SKILLS_ROOT = GITHUB + '/tree/' + CODEX_VERIFIED_REF + '/skills';
 
 /**
  * Single source of truth for the orion-skills microsite.
  *
  * All copy is GROUNDED in the real repo (README.md, the skills/ catalog, and the
  * latest GitHub release). orion-skills is a curated skills LIBRARY (not a CLI or
- * package): install = copy a folder into ~/.claude/skills/. No fabricated metrics.
+ * package): the full library targets Claude Code and an exact three-skill starter
+ * set is verified for Codex. No fabricated metrics or broad compatibility claims.
  */
 export const PRODUCT_DATA: ProductData = {
   name: 'orion-skills',
   tagline:
-    'A curated library of original Claude Code skills for disciplined agent workflows — finish discipline, scope control, and durable handoffs, loaded on demand.',
+    'A curated library of disciplined Agent Skills for Claude Code, with a verified Codex starter set for stale-premise, control-binding, and live-deploy proof.',
   credibility:
-    'Open source (MIT) · 26 skills · No plugin or marketplace · Loaded on demand · Engine-portable.',
+    'Open source (MIT) · 26 skills for Claude Code · 3 verified for Codex · Loaded on demand · No plugin marketplace.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
-    'orion-skills is a small, curated, MIT-licensed library of original Claude Code skills for disciplined agent workflows — finish discipline, scope guarding, pre-PR checks, self-correcting TDD loops, incident-as-code, learning capture, goal-prompt authoring, and pre-compact handoffs. Each is a folder with a SKILL.md the agent loads on demand; install by copying into ~/.claude/skills/. No plugin or marketplace required.',
+    'orion-skills is a curated, MIT-licensed library of 26 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local installation; no plugin marketplace.',
 
   problem: {
     heading: 'The problem',
@@ -31,7 +34,7 @@ export const PRODUCT_DATA: ProductData = {
   whatItDoes: {
     heading: 'What it is',
     body:
-      'A small, curated set of workflow- and finish-discipline skills — not tool wrappers. Each is a folder with a SKILL.md (YAML frontmatter plus a Markdown body) that Claude Code loads on demand when the task matches, keeping specialized procedure out of the base prompt. They encode the habits that keep an agent honest: don’t claim done until runtime is verified, don’t write outside your declared scope, capture what you learned, and turn a loose task into a fire-ready autonomous prompt.',
+      'A small, curated set of workflow- and finish-discipline skills — not tool wrappers. The full 26-skill library targets Claude Code. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   },
 
   cta: {
@@ -44,23 +47,42 @@ export const PRODUCT_DATA: ProductData = {
   quickstart: {
     heading: 'Install',
     intro:
-      'Claude Code auto-loads skills from ~/.claude/skills/ (v2.1.157+) — no marketplace or plugin required. Copy the skills you want, then invoke by name or let the model auto-invoke when the description matches.',
+      'Choose your host. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Both paths are direct local installation with no plugin marketplace.',
     blocks: [
       {
-        title: 'One skill',
+        title: 'Claude Code: one skill',
         command: ['cp -r skills/ship ~/.claude/skills/ship'].join('\n'),
       },
       {
-        title: '…or all of them',
+        title: 'Claude Code: all 26 skills',
         command: ['cp -r skills/* ~/.claude/skills/'].join('\n'),
       },
       {
-        title: 'Invoke by name in Claude Code',
-        note: 'or let the model auto-invoke on match',
-        command: ['/ship', '/pre-pr', '/pre-compact'].join('\n'),
+        title: 'Codex CLI: re-probe stale premises',
+        note: 'run as its own Codex prompt',
+        command:
+          '$skill-installer Install ' + CODEX_SKILLS_ROOT + '/reprobe-stale-premise',
+      },
+      {
+        title: 'Codex CLI: prove a control binds',
+        note: 'run as its own Codex prompt',
+        command:
+          '$skill-installer Install ' + CODEX_SKILLS_ROOT + '/prove-control-binds',
+      },
+      {
+        title: 'Codex CLI: prove a deploy is live',
+        note: 'run as its own Codex prompt',
+        command:
+          '$skill-installer Install ' + CODEX_SKILLS_ROOT + '/prove-deploy-is-live',
       },
     ],
   },
+
+  codexStarter: [
+    'reprobe-stale-premise',
+    'prove-control-binds',
+    'prove-deploy-is-live',
+  ],
 
   // The skill catalog — verified against README.md + the skills/ directory.
   commands: [
@@ -199,7 +221,7 @@ export const PRODUCT_DATA: ProductData = {
   demo: {
     heading: 'How it works',
     intro:
-      'Install is a copy; invocation is a slash command (or an auto-invoke when the model sees a matching task). Each skill loads its full procedure only when used.',
+      'The full Claude Code library uses slash-command invocation or description matching. Codex exposes the verified starter skills with its native $skill-name invocation after installation.',
     lines: [
       { kind: 'comment', text: '# Install — Claude Code auto-loads ~/.claude/skills/ (no plugin, no marketplace)' },
       { kind: 'command', text: 'cp -r skills/* ~/.claude/skills/' },
@@ -225,7 +247,7 @@ export const PRODUCT_DATA: ProductData = {
       {
         title: 'No plugin, no marketplace',
         body:
-          'Native ~/.claude/skills/ loading (Claude Code v2.1.157+). Copying a folder is the install. The skills are plain Markdown plus a SKILL.md, so the pattern is engine-portable.',
+          'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Both are local skill paths with no plugin marketplace.',
       },
       {
         title: 'Loaded on demand',

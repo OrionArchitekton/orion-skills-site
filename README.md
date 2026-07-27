@@ -19,10 +19,17 @@ project owns the skill library content and tests.
 ## Local Development
 
 ```bash
-npm install
+npm ci
 npm run dev
+```
+
+## Validation
+
+```bash
+npm audit --audit-level=high
+npx tsc --noEmit
 npm run build
-npm run preview
+npm run test:contract
 ```
 
 ## Boundaries
