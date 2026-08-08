@@ -1339,7 +1339,7 @@ const governedCodexJsonLdClaims = [
 // byte-identical to the previous build (17 extracted strings, no diff), and the
 // source change touches no Codex string.
 const governedCodexElementContextDigest =
-  '68296d2064e5ea9188d6deaedec704c765f2ea49fde6cf450139ef31b23e4e89';
+  '9b8e76e741e8124cefd679d49ef62a0ed307b7d200ccc77330dc6d6b5997e448';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1620,9 +1620,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
 
   assert.deepEqual(actualDigests, {
     'index.html':
-      '145d667a4aa3e41c9d5b61eb4772834d43e27627ba7e708028e7cfc42410fd6c',
-    'assets/index-ByyUGqpR.js':
-      '908f4581e4ea734d246c03799ced5f88e61931a46b8468a06b50c837260b5b4e',
+      'fefd81492522593daab38d5b29a1e21104f6969e6043e81e08225fbb481f0b65',
+    'assets/index-BqNOUZBW.js':
+      '208ad560cbf05819b5d634ea14d4cf708bfed0f7fa37326e70a1ac0ef226642d',
     'assets/index-DbLwydxd.css':
       '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
   });
@@ -1669,9 +1669,17 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // leaving the newest assertion as the one thing a re-pin could quietly
   // change. Grounding: orion-skills main carries
   // skills/readonly/hooks/pretooluse-readonly.sh plus selftest.py.
+  // Grounded, and specific about WHICH ref: the hook is on main, but the
+  // release this page advertises (v0.5.0, 2026-07-08) predates it and carries
+  // only SKILL.md. Saying "ships in the repo" next to a v0.5.0 call-to-action
+  // sends a reader to an artifact that cannot do what the sentence promises.
   assert.ok(
-    /hook ships in the repo/i.test(shipped),
-    'the shipped page must state that the hook ships, which is the claim the source repo now supports',
+    /hook ships on main/i.test(shipped),
+    'the shipped page must say the hook is on main, not merely "in the repo"',
+  );
+  assert.ok(
+    /newer than the v0\.5\.0 release/i.test(shipped),
+    'the shipped page must warn that the advertised release predates the hook',
   );
 
   // And the arming caveat. Copying a skill folder does not register a
