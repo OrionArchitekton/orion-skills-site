@@ -1628,6 +1628,44 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   });
 });
 
+test('the readonly claim stays scoped to the tools the hook actually matches', () => {
+  // The digest pins above are opaque: they prove the bytes did not change
+  // without asserting WHAT they say, so a future re-pin could reintroduce a
+  // retracted claim and still go green. This test names the semantics instead.
+  //
+  // History: the site said the hook denies "every file-mutating tool" and
+  // suited an audit where "nothing should change". Both are false. The hook
+  // registers on Edit|Write|MultiEdit|NotebookEdit, so a write issued through
+  // the Bash tool never reaches it.
+  // Asserted against the SHIPPED artifact, not the source, so this covers what
+  // a reader actually receives rather than what the source intended.
+  const shipped = html;
+
+  assert.ok(
+    shipped.includes('Structural read-only session mode'),
+    'the shipped page must still carry the readonly entry (guards against a vacuous pass)',
+  );
+
+  const retracted = ['every file-mutating tool', 'nothing should change'];
+  for (const claim of retracted) {
+    assert.ok(
+      !shipped.includes(claim),
+      `the shipped page reintroduced a retracted readonly claim: "${claim}"`,
+    );
+  }
+
+  // Positive evidence, not just absence: a rewrite could drop the overclaim and
+  // the disclosure together and pass an absence-only check.
+  assert.ok(
+    shipped.includes('Edit/Write/MultiEdit/NotebookEdit'),
+    'the shipped page must name the tools the readonly matcher actually covers',
+  );
+  assert.ok(
+    /shell writes via Bash are outside the matcher/i.test(shipped),
+    'the shipped page must disclose that Bash writes are outside the matcher',
+  );
+});
+
 test('the social card preserves its delivery dimensions', () => {
   const sourcePng = readFileSync(
     new URL(`../public/${socialCardName}`, import.meta.url),
