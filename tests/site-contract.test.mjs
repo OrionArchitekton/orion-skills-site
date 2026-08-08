@@ -1339,7 +1339,7 @@ const governedCodexJsonLdClaims = [
 // byte-identical to the previous build (17 extracted strings, no diff), and the
 // source change touches no Codex string.
 const governedCodexElementContextDigest =
-  'c841314ba08d43a079e9a2208e92bfe22aec7698851df9354b1cdd57754f82c4';
+  '68296d2064e5ea9188d6deaedec704c765f2ea49fde6cf450139ef31b23e4e89';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1620,9 +1620,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
 
   assert.deepEqual(actualDigests, {
     'index.html':
-      '7f1d19f42f1ea1de1e3c4aa49fa27bd23ee78849d30098f5f1bcd79394df4da6',
-    'assets/index-BOKjFqnT.js':
-      'e4e26087483f70bbb67ac390db5147a1a8a953f758d1bdf1cfe0038f414768f3',
+      '145d667a4aa3e41c9d5b61eb4772834d43e27627ba7e708028e7cfc42410fd6c',
+    'assets/index-ByyUGqpR.js':
+      '908f4581e4ea734d246c03799ced5f88e61931a46b8468a06b50c837260b5b4e',
     'assets/index-DbLwydxd.css':
       '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
   });
@@ -1661,8 +1661,26 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
     'the shipped page must name the tools the readonly matcher actually covers',
   );
   assert.ok(
-    /shell writes via Bash are outside the matcher/i.test(shipped),
+    /shell writes via Bash stay outside the matcher/i.test(shipped),
     'the shipped page must disclose that Bash writes are outside the matcher',
+  );
+
+  // The "ships in the repo" claim is itself checkable, so pin it rather than
+  // leaving the newest assertion as the one thing a re-pin could quietly
+  // change. Grounding: orion-skills main carries
+  // skills/readonly/hooks/pretooluse-readonly.sh plus selftest.py.
+  assert.ok(
+    /hook ships in the repo/i.test(shipped),
+    'the shipped page must state that the hook ships, which is the claim the source repo now supports',
+  );
+
+  // And the arming caveat. Copying a skill folder does not register a
+  // PreToolUse hook, so a reader who follows the documented Claude Code install
+  // (cp -r skills/*) has an inert hook until they wire it up. Claiming
+  // enforcement without that step is the same overclaim this test guards.
+  assert.ok(
+    /copying the skill does not arm it/i.test(shipped),
+    'the shipped page must say the hook needs registering, not just copying',
   );
 });
 
