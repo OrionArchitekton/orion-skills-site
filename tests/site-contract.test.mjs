@@ -1332,8 +1332,14 @@ const governedCodexJsonLdClaims = [
   'A verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof, pinned to reviewed source c334ca4.',
   'Codex CLI',
 ];
+// Re-pinned 2026-08-08 alongside the `readonly` description correction. The
+// digest covers ancestor CONTEXT around Codex copy, so it also moves when a
+// sibling entry in the same container changes, even though no Codex claim did.
+// Verified before re-pinning: the governed Codex copy in the built artifact is
+// byte-identical to the previous build (17 extracted strings, no diff), and the
+// source change touches no Codex string.
 const governedCodexElementContextDigest =
-  '0a6fd083bbc8bc5b2639ec4599410cd2b5fb8e515c094a3777817162e0078eb4';
+  'c841314ba08d43a079e9a2208e92bfe22aec7698851df9354b1cdd57754f82c4';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1614,9 +1620,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
 
   assert.deepEqual(actualDigests, {
     'index.html':
-      'b3eaf814d812af82ca03791d4eced160cd944994907ceafc2c6ee79052129aed',
-    'assets/index-DJcNwovD.js':
-      'c4e4244a755df421a3541ec6f257635898db5ae931022e488cc73b67a14275c0',
+      '7f1d19f42f1ea1de1e3c4aa49fa27bd23ee78849d30098f5f1bcd79394df4da6',
+    'assets/index-BOKjFqnT.js':
+      'e4e26087483f70bbb67ac390db5147a1a8a953f758d1bdf1cfe0038f414768f3',
     'assets/index-DbLwydxd.css':
       '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
   });
