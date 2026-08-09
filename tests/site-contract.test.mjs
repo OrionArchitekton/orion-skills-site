@@ -1332,14 +1332,14 @@ const governedCodexJsonLdClaims = [
   'A verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof, pinned to reviewed source c334ca4.',
   'Codex CLI',
 ];
-// Re-pinned 2026-08-08 alongside the `readonly` description correction. The
-// digest covers ancestor CONTEXT around Codex copy, so it also moves when a
-// sibling entry in the same container changes, even though no Codex claim did.
-// Verified before re-pinning: the governed Codex copy in the built artifact is
-// byte-identical to the previous build (17 extracted strings, no diff), and the
+// Re-pinned 2026-08-09 alongside deriving the `readonly` release warning from
+// VERSION. The digest covers ancestor CONTEXT around Codex copy, so it also
+// moves when a sibling entry in the same container changes, even though no
+// Codex claim did. Verified before re-pinning: the element/attribute/JSON-LD
+// claim manifests above still deep-equal the built artifact exactly, and the
 // source change touches no Codex string.
 const governedCodexElementContextDigest =
-  '9b8e76e741e8124cefd679d49ef62a0ed307b7d200ccc77330dc6d6b5997e448';
+  '341a11a74284f23c17853dd954086c540cd58b2e39c9339c00abe42be8241071';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1620,9 +1620,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
 
   assert.deepEqual(actualDigests, {
     'index.html':
-      'fefd81492522593daab38d5b29a1e21104f6969e6043e81e08225fbb481f0b65',
-    'assets/index-BqNOUZBW.js':
-      '208ad560cbf05819b5d634ea14d4cf708bfed0f7fa37326e70a1ac0ef226642d',
+      '05490cb1099f094275ddfd733abe5ea33240e439d8d055cdac977cb7025f69bc',
+    'assets/index-CHrWXRWb.js':
+      '734fe727ae74bf30d92c98c8217520baf1a2fcfc207b09497d6a75bf02e9c05d',
     'assets/index-DbLwydxd.css':
       '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
   });
@@ -1670,15 +1670,34 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // change. Grounding: orion-skills main carries
   // skills/readonly/hooks/pretooluse-readonly.sh plus selftest.py.
   // Grounded, and specific about WHICH ref: the hook is on main, but the
-  // release this page advertises (v0.5.0, 2026-07-08) predates it and carries
-  // only SKILL.md. Saying "ships in the repo" next to a v0.5.0 call-to-action
-  // sends a reader to an artifact that cannot do what the sentence promises.
+  // release this page advertises (v0.5.0, 2026-07-08, only SKILL.md) predates
+  // it. Saying "ships in the repo" next to the release call-to-action sends a
+  // reader to an artifact that cannot do what the sentence promises. The
+  // warning must track whatever release the page advertises, so derive the
+  // version from constants.ts instead of freezing a literal here.
   assert.ok(
     /hook ships on main/i.test(shipped),
     'the shipped page must say the hook is on main, not merely "in the repo"',
   );
+  const constantsSource = readFileSync(
+    new URL('../constants.ts', import.meta.url),
+    'utf8',
+  );
+  const advertisedVersion = constantsSource.match(
+    /^const VERSION = '([^']+)';$/m,
+  )?.[1];
   assert.ok(
-    /newer than the v0\.5\.0 release/i.test(shipped),
+    advertisedVersion,
+    'constants.ts must declare the advertised release VERSION',
+  );
+  const advertisedVersionPattern = advertisedVersion.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    '\\$&',
+  );
+  assert.ok(
+    new RegExp(`newer than the ${advertisedVersionPattern} release`, 'i').test(
+      shipped,
+    ),
     'the shipped page must warn that the advertised release predates the hook',
   );
 

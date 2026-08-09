@@ -89,7 +89,9 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'readonly',
       description:
-        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main, executable, with a selftest that proves it denies; it is newer than the v0.5.0 release above, so take it from the repo. Copying the skill does not arm it, you register the hook in your own settings. Shell writes via Bash stay outside the matcher.',
+        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main, executable, with a selftest that proves it denies; it is newer than the ' +
+        VERSION +
+        ' release above, so take it from the repo. Copying the skill does not arm it, you register the hook in your own settings. Shell writes via Bash stay outside the matcher.',
     },
     {
       name: 'scope-guard',
