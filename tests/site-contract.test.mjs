@@ -1641,9 +1641,25 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // a reader actually receives rather than what the source intended.
   const shipped = html;
 
+  // The positive disclosures bind to the readonly catalog entry itself, not
+  // the whole document: any other entry mentioning these phrases would keep a
+  // document-wide check green after the readonly entry regressed. The
+  // retracted-claim absence checks below deliberately stay document-wide,
+  // because a retracted claim is a regression wherever it reappears.
+  const readonlyTerms = findElements(
+    document,
+    (node) => node.tagName === 'dt' && nodeText(node).trim() === 'readonly',
+  );
+  assert.equal(
+    readonlyTerms.length,
+    1,
+    'the shipped page must carry exactly one readonly catalog entry (guards against a vacuous pass)',
+  );
+  const readonlyEntry = serializeOuter(readonlyTerms[0].parentNode);
+
   assert.ok(
-    shipped.includes('Structural read-only session mode'),
-    'the shipped page must still carry the readonly entry (guards against a vacuous pass)',
+    readonlyEntry.includes('Structural read-only session mode'),
+    'the readonly entry must still carry its identifying copy',
   );
 
   const retracted = ['every file-mutating tool', 'nothing should change'];
@@ -1657,12 +1673,12 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // Positive evidence, not just absence: a rewrite could drop the overclaim and
   // the disclosure together and pass an absence-only check.
   assert.ok(
-    shipped.includes('Edit/Write/MultiEdit/NotebookEdit'),
-    'the shipped page must name the tools the readonly matcher actually covers',
+    readonlyEntry.includes('Edit/Write/MultiEdit/NotebookEdit'),
+    'the readonly entry must name the tools the readonly matcher actually covers',
   );
   assert.ok(
-    /shell writes via Bash stay outside the matcher/i.test(shipped),
-    'the shipped page must disclose that Bash writes are outside the matcher',
+    /shell writes via Bash stay outside the matcher/i.test(readonlyEntry),
+    'the readonly entry must disclose that Bash writes are outside the matcher',
   );
 
   // The "ships in the repo" claim is itself checkable, so pin it rather than
@@ -1676,8 +1692,8 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // warning must track whatever release the page advertises, so derive the
   // version from constants.ts instead of freezing a literal here.
   assert.ok(
-    /hook ships on main/i.test(shipped),
-    'the shipped page must say the hook is on main, not merely "in the repo"',
+    /hook ships on main/i.test(readonlyEntry),
+    'the readonly entry must say the hook is on main, not merely "in the repo"',
   );
   const constantsSource = readFileSync(
     new URL('../constants.ts', import.meta.url),
@@ -1696,9 +1712,9 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   );
   assert.ok(
     new RegExp(`newer than the ${advertisedVersionPattern} release`, 'i').test(
-      shipped,
+      readonlyEntry,
     ),
-    'the shipped page must warn that the advertised release predates the hook',
+    'the readonly entry must warn that the advertised release predates the hook',
   );
 
   // And the arming caveat. Copying a skill folder does not register a
@@ -1706,8 +1722,15 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // (cp -r skills/*) has an inert hook until they wire it up. Claiming
   // enforcement without that step is the same overclaim this test guards.
   assert.ok(
-    /copying the skill does not arm it/i.test(shipped),
-    'the shipped page must say the hook needs registering, not just copying',
+    /copying the skill does not arm it/i.test(readonlyEntry),
+    'the readonly entry must say copying alone does not arm the hook',
+  );
+  // Arming and registering are separate disclosures: the caveat says copying
+  // is not enough, and this names the step that IS enough. Requiring both
+  // keeps a rewrite from dropping the actionable half.
+  assert.ok(
+    /register the hook in your own settings/i.test(readonlyEntry),
+    'the readonly entry must tell the reader to register the hook themselves',
   );
 });
 
