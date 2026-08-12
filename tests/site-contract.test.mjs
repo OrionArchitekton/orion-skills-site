@@ -1339,7 +1339,7 @@ const governedCodexJsonLdClaims = [
 // claim manifests above still deep-equal the built artifact exactly, and the
 // source change touches no Codex string.
 const governedCodexElementContextDigest =
-  '341a11a74284f23c17853dd954086c540cd58b2e39c9339c00abe42be8241071';
+  'b9c862a1c3c92e5ee940a56152a8c449552c9b82a8fc6618d6cd951caed73004';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1620,9 +1620,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
 
   assert.deepEqual(actualDigests, {
     'index.html':
-      '05490cb1099f094275ddfd733abe5ea33240e439d8d055cdac977cb7025f69bc',
-    'assets/index-CHrWXRWb.js':
-      '734fe727ae74bf30d92c98c8217520baf1a2fcfc207b09497d6a75bf02e9c05d',
+      'aecc0b659ceb913421f5251bfd8f5a0f7e948aca27a714b54ce3e64e66f8aec7',
+    'assets/index-BLFpEcCH.js':
+      '3d90f727171261794fb9dfa74916795c9bb507541061690061ef7d863ad174e2',
     'assets/index-DbLwydxd.css':
       '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
   });
@@ -1688,9 +1688,14 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // Grounded, and specific about WHICH ref: the hook is on main, but the
   // release this page advertises (v0.5.0, 2026-07-08, only SKILL.md) predates
   // it. Saying "ships in the repo" next to the release call-to-action sends a
-  // reader to an artifact that cannot do what the sentence promises. The
-  // warning must track whatever release the page advertises, so derive the
-  // version from constants.ts instead of freezing a literal here.
+  // reader to an artifact that cannot do what the sentence promises.
+  // The COPY pins the literal historical release the claim is a fact about;
+  // this TEST derives its expected version from the advertised VERSION in
+  // constants.ts. They agree today, so this passes. The moment the advertised
+  // release bumps (the planned hook-containing release), the mismatch fails
+  // the suite and forces a human to drop or rewrite the sentence and this
+  // assertion together. Interpolating VERSION into the copy instead would let
+  // the claim drift false while the suite stayed green.
   assert.ok(
     /hook ships on main/i.test(readonlyEntry),
     'the readonly entry must say the hook is on main, not merely "in the repo"',
@@ -1731,6 +1736,18 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   assert.ok(
     /register the hook in your own settings/i.test(readonlyEntry),
     'the readonly entry must tell the reader to register the hook themselves',
+  );
+  // Registration alone is not enforcement: a registered hook with no marker
+  // allows every write (the marker is the opt-in). Guidance that stops at
+  // registration describes a fail-open workflow as if it were protection, so
+  // the entry must also name the activation step.
+  assert.ok(
+    /stays inert until you set the marker/i.test(readonlyEntry),
+    'the readonly entry must say a registered hook is still inert without the marker',
+  );
+  assert.ok(
+    readonlyEntry.includes('readonly-mode.sh'),
+    'the readonly entry must name the helper that sets the marker',
   );
 });
 
