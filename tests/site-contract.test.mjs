@@ -1332,8 +1332,14 @@ const governedCodexJsonLdClaims = [
   'A verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof, pinned to reviewed source c334ca4.',
   'Codex CLI',
 ];
+// Re-pinned 2026-08-09 alongside deriving the `readonly` release warning from
+// VERSION. The digest covers ancestor CONTEXT around Codex copy, so it also
+// moves when a sibling entry in the same container changes, even though no
+// Codex claim did. Verified before re-pinning: the element/attribute/JSON-LD
+// claim manifests above still deep-equal the built artifact exactly, and the
+// source change touches no Codex string.
 const governedCodexElementContextDigest =
-  '0a6fd083bbc8bc5b2639ec4599410cd2b5fb8e515c094a3777817162e0078eb4';
+  'b9c862a1c3c92e5ee940a56152a8c449552c9b82a8fc6618d6cd951caed73004';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1614,12 +1620,135 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
 
   assert.deepEqual(actualDigests, {
     'index.html':
-      'b3eaf814d812af82ca03791d4eced160cd944994907ceafc2c6ee79052129aed',
-    'assets/index-DJcNwovD.js':
-      'c4e4244a755df421a3541ec6f257635898db5ae931022e488cc73b67a14275c0',
+      'aecc0b659ceb913421f5251bfd8f5a0f7e948aca27a714b54ce3e64e66f8aec7',
+    'assets/index-BLFpEcCH.js':
+      '3d90f727171261794fb9dfa74916795c9bb507541061690061ef7d863ad174e2',
     'assets/index-DbLwydxd.css':
       '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
   });
+});
+
+test('the readonly claim stays scoped to the tools the hook actually matches', () => {
+  // The digest pins above are opaque: they prove the bytes did not change
+  // without asserting WHAT they say, so a future re-pin could reintroduce a
+  // retracted claim and still go green. This test names the semantics instead.
+  //
+  // History: the site said the hook denies "every file-mutating tool" and
+  // suited an audit where "nothing should change". Both are false. The hook
+  // registers on Edit|Write|MultiEdit|NotebookEdit, so a write issued through
+  // the Bash tool never reaches it.
+  // Asserted against the SHIPPED artifact, not the source, so this covers what
+  // a reader actually receives rather than what the source intended.
+  const shipped = html;
+
+  // The positive disclosures bind to the readonly catalog entry itself, not
+  // the whole document: any other entry mentioning these phrases would keep a
+  // document-wide check green after the readonly entry regressed. The
+  // retracted-claim absence checks below deliberately stay document-wide,
+  // because a retracted claim is a regression wherever it reappears.
+  const readonlyTerms = findElements(
+    document,
+    (node) => node.tagName === 'dt' && nodeText(node).trim() === 'readonly',
+  );
+  assert.equal(
+    readonlyTerms.length,
+    1,
+    'the shipped page must carry exactly one readonly catalog entry (guards against a vacuous pass)',
+  );
+  const readonlyEntry = serializeOuter(readonlyTerms[0].parentNode);
+
+  assert.ok(
+    readonlyEntry.includes('Structural read-only session mode'),
+    'the readonly entry must still carry its identifying copy',
+  );
+
+  const retracted = ['every file-mutating tool', 'nothing should change'];
+  for (const claim of retracted) {
+    assert.ok(
+      !shipped.includes(claim),
+      `the shipped page reintroduced a retracted readonly claim: "${claim}"`,
+    );
+  }
+
+  // Positive evidence, not just absence: a rewrite could drop the overclaim and
+  // the disclosure together and pass an absence-only check.
+  assert.ok(
+    readonlyEntry.includes('Edit/Write/MultiEdit/NotebookEdit'),
+    'the readonly entry must name the tools the readonly matcher actually covers',
+  );
+  assert.ok(
+    /shell writes via Bash stay outside the matcher/i.test(readonlyEntry),
+    'the readonly entry must disclose that Bash writes are outside the matcher',
+  );
+
+  // The "ships in the repo" claim is itself checkable, so pin it rather than
+  // leaving the newest assertion as the one thing a re-pin could quietly
+  // change. Grounding: orion-skills main carries
+  // skills/readonly/hooks/pretooluse-readonly.sh plus selftest.py.
+  // Grounded, and specific about WHICH ref: the hook is on main, but the
+  // release this page advertises (v0.5.0, 2026-07-08, only SKILL.md) predates
+  // it. Saying "ships in the repo" next to the release call-to-action sends a
+  // reader to an artifact that cannot do what the sentence promises.
+  // The COPY pins the literal historical release the claim is a fact about;
+  // this TEST derives its expected version from the advertised VERSION in
+  // constants.ts. They agree today, so this passes. The moment the advertised
+  // release bumps (the planned hook-containing release), the mismatch fails
+  // the suite and forces a human to drop or rewrite the sentence and this
+  // assertion together. Interpolating VERSION into the copy instead would let
+  // the claim drift false while the suite stayed green.
+  assert.ok(
+    /hook ships on main/i.test(readonlyEntry),
+    'the readonly entry must say the hook is on main, not merely "in the repo"',
+  );
+  const constantsSource = readFileSync(
+    new URL('../constants.ts', import.meta.url),
+    'utf8',
+  );
+  const advertisedVersion = constantsSource.match(
+    /^const VERSION = '([^']+)';$/m,
+  )?.[1];
+  assert.ok(
+    advertisedVersion,
+    'constants.ts must declare the advertised release VERSION',
+  );
+  const advertisedVersionPattern = advertisedVersion.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    '\\$&',
+  );
+  assert.ok(
+    new RegExp(`newer than the ${advertisedVersionPattern} release`, 'i').test(
+      readonlyEntry,
+    ),
+    'the readonly entry must warn that the advertised release predates the hook',
+  );
+
+  // And the arming caveat. Copying a skill folder does not register a
+  // PreToolUse hook, so a reader who follows the documented Claude Code install
+  // (cp -r skills/*) has an inert hook until they wire it up. Claiming
+  // enforcement without that step is the same overclaim this test guards.
+  assert.ok(
+    /copying the skill does not arm it/i.test(readonlyEntry),
+    'the readonly entry must say copying alone does not arm the hook',
+  );
+  // Arming and registering are separate disclosures: the caveat says copying
+  // is not enough, and this names the step that IS enough. Requiring both
+  // keeps a rewrite from dropping the actionable half.
+  assert.ok(
+    /register the hook in your own settings/i.test(readonlyEntry),
+    'the readonly entry must tell the reader to register the hook themselves',
+  );
+  // Registration alone is not enforcement: a registered hook with no marker
+  // allows every write (the marker is the opt-in). Guidance that stops at
+  // registration describes a fail-open workflow as if it were protection, so
+  // the entry must also name the activation step.
+  assert.ok(
+    /stays inert until you set the marker/i.test(readonlyEntry),
+    'the readonly entry must say a registered hook is still inert without the marker',
+  );
+  assert.ok(
+    readonlyEntry.includes('readonly-mode.sh'),
+    'the readonly entry must name the helper that sets the marker',
+  );
 });
 
 test('the social card preserves its delivery dimensions', () => {

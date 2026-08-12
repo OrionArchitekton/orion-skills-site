@@ -89,7 +89,13 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'readonly',
       description:
-        'Structural read-only session mode — sets a marker a PreToolUse hook reads to DENY every file-mutating tool until cleared. For an audit/census where nothing should change.',
+        // 'v0.5.0' is deliberately a literal, not VERSION: it is a historical
+        // fact about the release that predates the hook. The contract test
+        // derives its expected version from VERSION, so bumping the advertised
+        // release breaks the suite and forces this sentence to be rewritten or
+        // dropped, instead of an interpolated version silently keeping a
+        // stale claim in place.
+        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main, executable, with a selftest that proves it denies; it is newer than the v0.5.0 release above, so take it from the repo. Copying the skill does not arm it, you register the hook in your own settings; even then the hook stays inert until you set the marker with the bundled readonly-mode.sh helper. Shell writes via Bash stay outside the matcher.',
     },
     {
       name: 'scope-guard',
