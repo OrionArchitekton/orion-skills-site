@@ -71,8 +71,9 @@ this surface.
 ## Constraints
 
 - Preserve the existing page design and interaction model.
-- Keep all claims grounded in reviewed Orion Skills source commit
-  `c334ca499beed06892ba0a51b2698ce75e4a3e05`.
+- Keep all claims grounded in the Orion Skills release this page advertises (the
+  `VERSION` tag; v0.6.0 as of 2026-09-28). The Codex starter surface was originally
+  reviewed at source commit `c334ca499beed06892ba0a51b2698ce75e4a3e05`.
 - Keep the advertised release link (`VERSION` in `constants.ts`: v0.6.0 as of
   2026-09-28, previously v0.5.0) as release navigation; do not claim that the
   Codex starter set shipped in a specific release.
