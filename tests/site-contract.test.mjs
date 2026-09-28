@@ -597,12 +597,12 @@ const starterSkills = [
   'prove-deploy-is-live',
 ];
 const verifiedSourceRef = 'c334ca499beed06892ba0a51b2698ce75e4a3e05';
-const socialCardName = 'og-card-codex-starter-b255f3038600.png';
+const socialCardName = 'og-card-codex-starter-020a52a51eca.png';
 const socialCardUrl = `${canonicalPageUrl}${socialCardName}`;
 const governedDocumentTitle =
-  'orion-skills: 26 skills for Claude Code + 3-skill Codex starter set';
+  'orion-skills: 27 skills for Claude Code + 3-skill Codex starter set';
 const governedDocumentDescription =
-  'orion-skills is an MIT-licensed library of 26 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace.';
+  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace.';
 const governedSocialMetadata = [
   [
     'property',
@@ -612,14 +612,14 @@ const governedSocialMetadata = [
   [
     'property',
     'og:description',
-    '26 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
   ],
   ['property', 'og:url', canonicalPageUrl],
   ['property', 'og:image', socialCardUrl],
   [
     'property',
     'og:image:alt',
-    'orion-skills: 26 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
   ],
   [
     'name',
@@ -629,13 +629,13 @@ const governedSocialMetadata = [
   [
     'name',
     'twitter:description',
-    '26 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
   ],
   ['name', 'twitter:image', socialCardUrl],
   [
     'name',
     'twitter:image:alt',
-    'orion-skills: 26 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
   ],
 ];
 
@@ -827,7 +827,7 @@ test('a base element cannot redirect the hydrated application', () => {
 
 test('template content cannot impersonate active document metadata', () => {
   const templateFixture = parseArtifact(
-    '<template><title>orion-skills: 26 skills for Claude Code + 3-skill Codex starter set</title></template>',
+    '<template><title>orion-skills: 27 skills for Claude Code + 3-skill Codex starter set</title></template>',
   );
 
   assert.throws(
@@ -1178,7 +1178,7 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
     );
   }
 
-  assert.match(bakedText, /26.{0,80}Claude Code/i);
+  assert.match(bakedText, /27.{0,80}Claude Code/i);
   assert.match(bakedText, /(?:three|3).{0,80}Codex/i);
   assert.match(bakedText, /separate.{0,80}(?:request|prompt)/i);
   assert.match(
@@ -1193,7 +1193,7 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
   assert.ok(
     findActiveElements(root, (node) => node.tagName === 'h2').some(
       (heading) =>
-        /All 26 Claude Code skills$/.test(activeNodeText(heading).trim()),
+        /All 27 Claude Code skills$/.test(activeNodeText(heading).trim()),
     ),
   );
   assert.match(
@@ -1237,18 +1237,18 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
 });
 
 const governedCodexElementClaims = [
-  ['title', 'orion-skills: 26 skills for Claude Code + 3-skill Codex starter set'],
+  ['title', 'orion-skills: 27 skills for Claude Code + 3-skill Codex starter set'],
   [
     'p',
     'A curated library of disciplined Agent Skills for Claude Code, with a verified Codex starter set for stale-premise, control-binding, and live-deploy proof.',
   ],
   [
     'p',
-    'Open source (MIT) · 26 skills for Claude Code · 3 verified for Codex · Loaded on demand · No plugin marketplace.',
+    'Open source (MIT) · 27 skills for Claude Code · 3 verified for Codex · Loaded on demand · No plugin marketplace.',
   ],
   [
     'p',
-    'A small, curated set of workflow- and finish-discipline skills — not tool wrappers. The full 26-skill library targets Claude Code. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
+    'A small, curated set of workflow- and finish-discipline skills, not tool wrappers. The full 27-skill library targets Claude Code. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   ],
   [
     'p',
@@ -1288,25 +1288,25 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '26 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
   ],
   ['meta', 'content', socialCardUrl],
   [
     'meta',
     'content',
-    'orion-skills: 26 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
   ],
   ['meta', 'content', governedDocumentTitle],
   [
     'meta',
     'content',
-    '26 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
   ],
   ['meta', 'content', socialCardUrl],
   [
     'meta',
     'content',
-    'orion-skills: 26 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
   ],
   [
     'button',
@@ -1332,14 +1332,17 @@ const governedCodexJsonLdClaims = [
   'A verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof, pinned to reviewed source c334ca4.',
   'Codex CLI',
 ];
-// Re-pinned 2026-08-09 alongside deriving the `readonly` release warning from
+// Re-pinned 2026-09-28 for v0.6.0 (grokbot added as a sibling entry, counts
+// 26 -> 27, readonly copy names v0.6.0). Verified every Codex-bearing source
+// change is count-only apart from the social-card hash and one dash removal.
+// Earlier: re-pinned 2026-08-09 alongside deriving the `readonly` release warning from
 // VERSION. The digest covers ancestor CONTEXT around Codex copy, so it also
 // moves when a sibling entry in the same container changes, even though no
 // Codex claim did. Verified before re-pinning: the element/attribute/JSON-LD
 // claim manifests above still deep-equal the built artifact exactly, and the
 // source change touches no Codex string.
 const governedCodexElementContextDigest =
-  'b9c862a1c3c92e5ee940a56152a8c449552c9b82a8fc6618d6cd951caed73004';
+  'b18e8e65b3c7ff8012cc2c48a4885a8c69d53d2f81cba375fd95ae38f62177f8';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1438,8 +1441,8 @@ test('the shipped artifact exposes only governed Codex claim surfaces', () => {
 
   const hiddenNarrowingDecoy = parseArtifact(
     html.replace(
-      '26 skills for Claude Code · 3 verified for Codex',
-      '26 skills for Claude Code · <span class="sr-only">3 </span>verified for Codex',
+      '27 skills for Claude Code · 3 verified for Codex',
+      '27 skills for Claude Code · <span class="sr-only">3 </span>verified for Codex',
     ),
   );
   assert.throws(
@@ -1547,7 +1550,7 @@ test('search, social, and structured metadata name both runtime surfaces', () =>
   assert.match(html, /<title>[^<]*Claude Code[^<]*Codex[^<]*<\/title>/i);
   assert.match(
     html,
-    /<meta name="description"\s+content="[^"]*26[^"]*Claude Code[^"]*three-skill Codex starter set[^"]*"/i,
+    /<meta name="description"\s+content="[^"]*27[^"]*Claude Code[^"]*three-skill Codex starter set[^"]*"/i,
   );
   assert.match(html, /<meta property="og:title" content="[^"]*Claude Code[^"]*Codex/i);
   assert.match(html, /<meta name="twitter:title" content="[^"]*Claude Code[^"]*Codex/i);
@@ -1566,14 +1569,14 @@ test('search, social, and structured metadata name both runtime surfaces', () =>
   assert.doesNotMatch(html, /\/og-card\.png/);
   assert.match(
     html,
-    /<meta property="og:image:alt" content="orion-skills: 26 Claude Code skills and a three-skill Codex starter set"/i,
+    /<meta property="og:image:alt" content="orion-skills: 27 Claude Code skills and a three-skill Codex starter set"/i,
   );
 
   const { library, codexStarter } =
     assertStructuredDataRuntimeBoundaries(document);
   assertStructuredDataRuntimeBoundaries(noScriptDocument);
   assert.equal(library.runtimePlatform, 'Claude Code');
-  assert.match(library.description, /26[^.]*Claude Code/i);
+  assert.match(library.description, /27[^.]*Claude Code/i);
   assert.doesNotMatch(library.description, /Codex/i);
   assert.deepEqual(library.hasPart, { '@id': codexStarter['@id'] });
 
@@ -1620,9 +1623,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
 
   assert.deepEqual(actualDigests, {
     'index.html':
-      'aecc0b659ceb913421f5251bfd8f5a0f7e948aca27a714b54ce3e64e66f8aec7',
-    'assets/index-BLFpEcCH.js':
-      '3d90f727171261794fb9dfa74916795c9bb507541061690061ef7d863ad174e2',
+      '072d2f98be75b9fffa4a4a06dae6692c96529f4afb9cc751f24b3c57c8ff7491',
+    'assets/index-DKzzE6vf.js':
+      '861b90854aef1fd6ae256acb23f8a6b7fd219e88d7f4164a4d2b72c53ef2b153',
     'assets/index-DbLwydxd.css':
       '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
   });
@@ -1685,15 +1688,15 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // leaving the newest assertion as the one thing a re-pin could quietly
   // change. Grounding: orion-skills main carries
   // skills/readonly/hooks/pretooluse-readonly.sh plus selftest.py.
-  // Grounded, and specific about WHICH ref: the hook is on main, but the
-  // release this page advertises (v0.5.0, 2026-07-08, only SKILL.md) predates
-  // it. Saying "ships in the repo" next to the release call-to-action sends a
-  // reader to an artifact that cannot do what the sentence promises.
+  // Grounded, and specific about WHICH ref: v0.5.0 (2026-07-08, only SKILL.md)
+  // predates the hook; v0.6.0, the release this page advertises, is the first
+  // cut from a main that carries it. Saying "ships in the repo" next to a
+  // release call-to-action that lacks it would send a reader to an artifact
+  // that cannot do what the sentence promises.
   // The COPY pins the literal historical release the claim is a fact about;
   // this TEST derives its expected version from the advertised VERSION in
   // constants.ts. They agree today, so this passes. The moment the advertised
-  // release bumps (the planned hook-containing release), the mismatch fails
-  // the suite and forces a human to drop or rewrite the sentence and this
+  // release bumps again, the mismatch fails the suite and forces a human to drop or rewrite the sentence and this
   // assertion together. Interpolating VERSION into the copy instead would let
   // the claim drift false while the suite stayed green.
   assert.ok(
@@ -1716,10 +1719,16 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
     '\\$&',
   );
   assert.ok(
-    new RegExp(`newer than the ${advertisedVersionPattern} release`, 'i').test(
+    new RegExp(`in the ${advertisedVersionPattern} release`, 'i').test(
       readonlyEntry,
     ),
-    'the readonly entry must warn that the advertised release predates the hook',
+    'the readonly entry must name the advertised release as the one carrying the hook',
+  );
+  // The historical fact stays pinned as a literal: v0.5.0 (2026-07-08) shipped only
+  // SKILL.md, so a future bump cannot drop the warning for older installs.
+  assert.ok(
+    /v0\.5\.0 and earlier do not include it/i.test(readonlyEntry),
+    'the readonly entry must keep warning that v0.5.0 and earlier lack the hook',
   );
 
   // And the arming caveat. Copying a skill folder does not register a

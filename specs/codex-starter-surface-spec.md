@@ -13,7 +13,7 @@ phrases are not synonyms and must not replace it.
 
 ## Source contract
 
-The full library contains 26 skills and targets Claude Code. The Codex starter
+The full library contains 27 skills and targets Claude Code. The Codex starter
 set contains exactly:
 
 1. `reprobe-stale-premise`
@@ -31,9 +31,9 @@ not a plugin-directory or marketplace listing.
 
 Given a visitor reaches the Orion Skills product page,
 when they read the hero, credibility line, or page metadata,
-then they learn that the full 26-skill library targets Claude Code,
+then they learn that the full 27-skill library targets Claude Code,
 and that a narrower three-skill starter set is verified for Codex,
-without seeing a claim that all 26 skills support Codex.
+without seeing a claim that all 27 skills support Codex.
 
 ### Scenario 2: Install the Codex starter set
 
@@ -63,7 +63,7 @@ then Claude Code and Codex are both named,
 and structured data records both supported runtime surfaces without implying
 that the full library is validated for Codex.
 
-The social card must match the current 26-skill library, the three-skill Codex
+The social card must match the current 27-skill library, the three-skill Codex
 starter set, and the canonical `/works/orion-skills/` URL. Its metadata URL must
 be content-versioned so a crawler cannot reuse the former Claude-only card for
 this surface.
@@ -71,10 +71,12 @@ this surface.
 ## Constraints
 
 - Preserve the existing page design and interaction model.
-- Keep all claims grounded in reviewed Orion Skills source commit
-  `c334ca499beed06892ba0a51b2698ce75e4a3e05`.
-- Keep the `v0.5.0` release link as historical release navigation; do not claim
-  that the Codex starter set shipped in that release.
+- Keep all claims grounded in the Orion Skills release this page advertises (the
+  `VERSION` tag; v0.6.0 as of 2026-09-28). The Codex starter surface was originally
+  reviewed at source commit `c334ca499beed06892ba0a51b2698ce75e4a3e05`.
+- Keep the advertised release link (`VERSION` in `constants.ts`: v0.6.0 as of
+  2026-09-28, previously v0.5.0) as release navigation; do not claim that the
+  Codex starter set shipped in a specific release.
 - Add no service, credential, connector, plugin, marketplace, or runtime
   dependency.
 - Do not change the skill catalog content from this repository.

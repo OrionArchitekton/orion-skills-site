@@ -180,7 +180,7 @@ const App: React.FC = () => {
 
         {/* 5. Skills */}
         <section>
-          <SectionTitle index="04" title="All 26 Claude Code skills" />
+          <SectionTitle index="04" title="All 27 Claude Code skills" />
           <p className="text-sm text-neutral-600 leading-relaxed mb-6">
             Codex starter set:{' '}
             <span className="font-mono text-neutral-800">
