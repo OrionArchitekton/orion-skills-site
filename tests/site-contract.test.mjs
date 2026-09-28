@@ -1724,6 +1724,12 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
     ),
     'the readonly entry must name the advertised release as the one carrying the hook',
   );
+  // The historical fact stays pinned as a literal: v0.5.0 (2026-07-08) shipped only
+  // SKILL.md, so a future bump cannot drop the warning for older installs.
+  assert.ok(
+    /v0\.5\.0 and earlier do not include it/i.test(readonlyEntry),
+    'the readonly entry must keep warning that v0.5.0 and earlier lack the hook',
+  );
 
   // And the arming caveat. Copying a skill folder does not register a
   // PreToolUse hook, so a reader who follows the documented Claude Code install
