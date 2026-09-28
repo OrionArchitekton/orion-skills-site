@@ -1,7 +1,7 @@
 import { ProductData } from './types';
 
 const GITHUB = 'https://github.com/OrionArchitekton/orion-skills';
-const VERSION = 'v0.5.0';
+const VERSION = 'v0.6.0';
 const RELEASE = GITHUB + '/releases/tag/' + VERSION;
 const AGENTSKILLS = 'https://www.agentskills.io';
 const CODEX_VERIFIED_REF = 'c334ca499beed06892ba0a51b2698ce75e4a3e05';
@@ -20,10 +20,10 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of disciplined Agent Skills for Claude Code, with a verified Codex starter set for stale-premise, control-binding, and live-deploy proof.',
   credibility:
-    'Open source (MIT) · 26 skills for Claude Code · 3 verified for Codex · Loaded on demand · No plugin marketplace.',
+    'Open source (MIT) · 27 skills for Claude Code · 3 verified for Codex · Loaded on demand · No plugin marketplace.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
-    'orion-skills is a curated, MIT-licensed library of 26 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local installation; no plugin marketplace.',
+    'orion-skills is a curated, MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local installation; no plugin marketplace.',
 
   problem: {
     heading: 'The problem',
@@ -34,7 +34,7 @@ export const PRODUCT_DATA: ProductData = {
   whatItDoes: {
     heading: 'What it is',
     body:
-      'A small, curated set of workflow- and finish-discipline skills — not tool wrappers. The full 26-skill library targets Claude Code. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
+      'A small, curated set of workflow- and finish-discipline skills, not tool wrappers. The full 27-skill library targets Claude Code. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   },
 
   cta: {
@@ -54,7 +54,7 @@ export const PRODUCT_DATA: ProductData = {
         command: ['cp -r skills/ship ~/.claude/skills/ship'].join('\n'),
       },
       {
-        title: 'Claude Code: all 26 skills',
+        title: 'Claude Code: all 27 skills',
         command: ['cp -r skills/* ~/.claude/skills/'].join('\n'),
       },
       {
@@ -89,13 +89,12 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'readonly',
       description:
-        // 'v0.5.0' is deliberately a literal, not VERSION: it is a historical
-        // fact about the release that predates the hook. The contract test
+        // 'v0.6.0' is deliberately a literal, not VERSION: it names the first
+        // release that carries the hook (v0.5.0 predates it). The contract test
         // derives its expected version from VERSION, so bumping the advertised
-        // release breaks the suite and forces this sentence to be rewritten or
-        // dropped, instead of an interpolated version silently keeping a
-        // stale claim in place.
-        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main, executable, with a selftest that proves it denies; it is newer than the v0.5.0 release above, so take it from the repo. Copying the skill does not arm it, you register the hook in your own settings; even then the hook stays inert until you set the marker with the bundled readonly-mode.sh helper. Shell writes via Bash stay outside the matcher.',
+        // release breaks the suite and forces this sentence to be re-checked,
+        // instead of an interpolated version silently keeping a stale claim.
+        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main and in the v0.6.0 release, executable, with a selftest that proves it denies; v0.5.0 and earlier do not include it. Copying the skill does not arm it, you register the hook in your own settings; even then the hook stays inert until you set the marker with the bundled readonly-mode.sh helper. Shell writes via Bash stay outside the matcher.',
     },
     {
       name: 'scope-guard',
@@ -221,6 +220,11 @@ export const PRODUCT_DATA: ProductData = {
       name: 'delegate',
       description:
         'Hands a scoped subagent, bulk, or background task to a non-Anthropic model CLI (Codex on a ChatGPT plan, Grok on a metered xAI key, or a free local model via Ollama) so it runs off the Anthropic budget with native tool calling, behind a sandbox and env-scrub gate. Shells out to each vendor CLI, not an ANTHROPIC_BASE_URL router-proxy.',
+    },
+    {
+      name: 'grokbot',
+      description:
+        'Hands a task to a bot in xAI’s Grok Bot desktop app through the documented routine webhook, and gets the result back through an outbox file the bot writes with the app’s local execution, so no UI is touched. Also reads any bot’s chat from the app’s local cache. It never resends a task that might already be running.',
     },
   ],
 
