@@ -1346,8 +1346,9 @@ const governedCodexJsonLdClaims = [
 // claim manifests above still deep-equal the built artifact exactly, and the
 // source change touches no Codex string.
 // The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
+// The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
 const governedCodexElementContextDigest =
-  '21d4cbfd65d235239028a1a79fdcc6b280c9b2e363bebb719712ca28d13e3087';
+  'ca9c365b6068672103d0888d4091508f4a2843445ecc17a3e2a1ea63b189f34b';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1627,8 +1628,8 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "79fdf783b1f5bdf4c79af457b7548d5178993fb7d0432852af083323cd1e1c04",
-    "assets/index-DcKU2cAk.js": "c5254387ec051d00cae9b153fea2911dffccf54f9c6c7de02243412c4aa72190",
+    "index.html": "812ec4558db1784177c10c44e01e28967ff8e4eecc18f886db0658faabc75b32",
+    "assets/index-DCiD3cKr.js": "e7db30cd939372915622994edb02cbfc1760869f625b06a10a875dd9f3e066f3",
     "assets/index-BOgiN1XQ.css": "0fdf525db3197418f9d5feaddf3bea608b2926210a8785e500fe605f417e33e1"
 }
   );
