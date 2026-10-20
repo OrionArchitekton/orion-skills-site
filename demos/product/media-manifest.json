@@ -8,7 +8,7 @@
   "voice": "Locally synthesized Dan narration using the existing authorized voice command",
   "files": {
     "orion-skills-demo.jpg": "4a4d495bf8511ca8bb64d9db755899be84439bcc16ea468144780bf0b839a988",
-    "orion-skills-demo.vtt": "7e1add1dc2f17167955faa3dc6d19c9ed58b9ae77b37fca35b87ebda3bd06081",
+    "orion-skills-demo.vtt": "95b5caa6eb1187589680449370bcaa89544b8dcb855fe3b45e1ebab4c5f8003c",
     "orion-skills-demo.mp4": "d9c49ec49c1760378772422c78a1d16a1230f497b366d0390a31d1d61a171016"
   }
 }
