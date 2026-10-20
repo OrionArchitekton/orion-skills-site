@@ -421,6 +421,10 @@ const allowedCssFunctions = new Set([
   'blur',
   'calc',
   'cubic-bezier',
+  // Tailwind 4's preflight color and screen-reader clipping. Neither emits text
+  // or fetches an asset; content, URLs and image functions remain forbidden.
+  'color-mix',
+  'inset',
   'minmax',
   'rect',
   'repeat',
@@ -1341,8 +1345,9 @@ const governedCodexJsonLdClaims = [
 // Codex claim did. Verified before re-pinning: the element/attribute/JSON-LD
 // claim manifests above still deep-equal the built artifact exactly, and the
 // source change touches no Codex string.
+// The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
 const governedCodexElementContextDigest =
-  'b18e8e65b3c7ff8012cc2c48a4885a8c69d53d2f81cba375fd95ae38f62177f8';
+  '21d4cbfd65d235239028a1a79fdcc6b280c9b2e363bebb719712ca28d13e3087';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1622,13 +1627,11 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    'index.html':
-      '072d2f98be75b9fffa4a4a06dae6692c96529f4afb9cc751f24b3c57c8ff7491',
-    'assets/index-DKzzE6vf.js':
-      '861b90854aef1fd6ae256acb23f8a6b7fd219e88d7f4164a4d2b72c53ef2b153',
-    'assets/index-DbLwydxd.css':
-      '81e00b387b713104e2fc3ee8ad9826d08dd06e37c11614dd54afd753a78a3dd9',
-  });
+    "index.html": "79fdf783b1f5bdf4c79af457b7548d5178993fb7d0432852af083323cd1e1c04",
+    "assets/index-DcKU2cAk.js": "c5254387ec051d00cae9b153fea2911dffccf54f9c6c7de02243412c4aa72190",
+    "assets/index-BOgiN1XQ.css": "0fdf525db3197418f9d5feaddf3bea608b2926210a8785e500fe605f417e33e1"
+}
+  );
 });
 
 test('the readonly claim stays scoped to the tools the hook actually matches', () => {
