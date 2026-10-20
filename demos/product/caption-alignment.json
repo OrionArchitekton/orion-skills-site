@@ -1,0 +1,75 @@
+{
+  "source": "Existing per-shot word alignment from this exact recording; original narration retained. Numeric spelling uses the same observed spoken interval.",
+  "cues": [
+    {
+      "start": 0.54,
+      "end": 2.84,
+      "text": "Orion Skills is a library of workflow instructions"
+    },
+    {
+      "start": 2.84,
+      "end": 6.0,
+      "text": "for coding agents. Here I select prove deploy"
+    },
+    {
+      "start": 6.16,
+      "end": 8.12,
+      "text": "is live from the public release and inspect"
+    },
+    {
+      "start": 8.22,
+      "end": 10.4,
+      "text": "its three proof requirements before copying it."
+    },
+    {
+      "start": 10.733333,
+      "end": 13.233333,
+      "text": "The copied skill file has the same hash"
+    },
+    {
+      "start": 13.233333,
+      "end": 16.153333,
+      "text": "as the source. This is an isolated demonstration"
+    },
+    {
+      "start": 16.153333,
+      "end": 19.193333000000003,
+      "text": "directory, not an installation into my running agent."
+    },
+    {
+      "start": 19.853333,
+      "end": 21.513333,
+      "text": "Review a skill before using it in your"
+    },
+    {
+      "start": 21.513333,
+      "end": 21.953333,
+      "text": "own setup."
+    },
+    {
+      "start": 22.3,
+      "end": 25.82,
+      "text": "When the destination already exists, preserve it and"
+    },
+    {
+      "start": 25.82,
+      "end": 29.22,
+      "text": "inspect it deliberately. The skills describe habits, not"
+    },
+    {
+      "start": 29.22,
+      "end": 32.7,
+      "text": "new execution authority. The site distinguishes the full"
+    },
+    {
+      "start": 32.7,
+      "end": 34.74,
+      "text": "library from its verified starter set."
+    },
+    {
+      "start": 35.32,
+      "end": 37.3,
+      "text": "Follow those documented support boundaries."
+    }
+  ]
+}

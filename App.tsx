@@ -1,3 +1,4 @@
+import { ProductDemo } from './ProductDemo';
 import React, { useEffect, useState } from 'react';
 import { PRODUCT_DATA } from './constants';
 import type { DemoLine } from './types';
@@ -47,7 +48,7 @@ const CommandBlock: React.FC<{ title: string; note?: string; command: string }> 
           onClick={copy}
           disabled={!canCopy}
           aria-disabled={!canCopy}
-          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white bg-neutral-900/70 backdrop-blur-sm border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:text-neutral-400 disabled:hover:border-neutral-700"
+          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white bg-neutral-900/70 backdrop-blur-xs border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:text-neutral-400 disabled:hover:border-neutral-700"
           aria-label={`Copy command: ${title}`}
         >
           {copied ? 'Copied' : 'Copy'}
@@ -126,6 +127,7 @@ const App: React.FC = () => {
             </a>
           </div>
         </header>
+      <ProductDemo />
 
         {/* 2. The problem */}
         <section>

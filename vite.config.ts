@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import { bodyBake } from './vite-plugin-bodybake';
 
 // Mirrors the danmercede-info template scaffold. The template's GEMINI_API_KEY
@@ -12,7 +13,7 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
   },
-  plugins: [react(), bodyBake()],
+  plugins: [react(), tailwindcss(), bodyBake()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),

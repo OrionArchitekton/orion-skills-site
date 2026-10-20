@@ -1,0 +1,15 @@
+{
+  "scope": "Recorded synthetic local demonstration; no API/model call or production mutation",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "copy-demo.py",
+        "/path/to/reviewed/orion-skills/skills/prove-deploy-is-live"
+      ],
+      "exit": 0,
+      "stdout": "{\"skill\": \"prove-deploy-is-live\", \"source\": \"v0.6.0\", \"skill_md_present\": true, \"same_sha256_as_source\": \"de5c5d5c190dfe918f8af42e0c3c7daba1c91de87101ad25a41f08589bee46aa\", \"existing_destination_preserved\": true, \"active_agent_settings_changed\": false}\n",
+      "stderr": ""
+    }
+  ]
+}
