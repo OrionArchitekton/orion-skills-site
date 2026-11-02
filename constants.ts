@@ -29,7 +29,7 @@ export const PRODUCT_DATA: ProductData = {
     prefix: 'Part of',
     name: 'Cosmocrat OS',
     url: 'https://www.cosmocrat.ai/',
-    description: 'Independently released.',
+    description: 'Independent installation, releases, license and support boundaries.',
     workflowLabel: 'Choose a workflow',
     workflowUrl: 'https://www.cosmocrat.ai/docs',
   },
