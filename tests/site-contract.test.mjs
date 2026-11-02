@@ -551,6 +551,25 @@ const assertStylesheetsCannotGenerateClaims = (document) => {
 };
 
 const document = parseArtifact(html);
+test('family affiliation preserves independent boundaries in every discovery surface', () => {
+  const requireBoundaries = (copy) => {
+    for (const term of [/Cosmocrat OS/i, /independent/i, /installation/i, /releases?/i, /licens(?:e|ing)/i, /support boundaries/i]) {
+      assert.match(copy, term, 'Family affiliation must preserve the component boundaries');
+    }
+  };
+  for (const [key, value] of [['name', 'description'], ['property', 'og:description'], ['name', 'twitter:description']]) {
+    const nodes = findElements(document, (node) => node.tagName === 'meta' && attribute(node, key) === value);
+    assert.equal(nodes.length, 1);
+    requireBoundaries(attribute(nodes[0], 'content'));
+  }
+  const paragraphs = findElements(document, (node) => node.tagName === 'p' && htmlText(node).includes('Cosmocrat OS'));
+  assert.equal(paragraphs.length, 1);
+  requireBoundaries(normalizeWhitespace(htmlText(paragraphs[0])));
+  assert.deepEqual(
+    findElements(paragraphs[0], (node) => node.tagName === 'a').map((node) => attribute(node, 'href')).sort(),
+    ['https://www.cosmocrat.ai/', 'https://www.cosmocrat.ai/docs'].sort(),
+  );
+});
 const noScriptDocument = parseArtifact(html, false);
 assertNoRuntimeContentRedirectors(document);
 assertNoRuntimeContentRedirectors(noScriptDocument);
@@ -606,7 +625,7 @@ const socialCardUrl = `${canonicalPageUrl}${socialCardName}`;
 const governedDocumentTitle =
   'orion-skills: 27 skills for Claude Code + 3-skill Codex starter set';
 const governedDocumentDescription =
-  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace.';
+  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.';
 const governedSocialMetadata = [
   [
     'property',
@@ -616,7 +635,7 @@ const governedSocialMetadata = [
   [
     'property',
     'og:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
   ],
   ['property', 'og:url', canonicalPageUrl],
   ['property', 'og:image', socialCardUrl],
@@ -633,7 +652,7 @@ const governedSocialMetadata = [
   [
     'name',
     'twitter:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
   ],
   ['name', 'twitter:image', socialCardUrl],
   [
@@ -1292,7 +1311,7 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
@@ -1304,7 +1323,7 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
@@ -1347,8 +1366,16 @@ const governedCodexJsonLdClaims = [
 // source change touches no Codex string.
 // The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
 // The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
+// 2026-10-31: family navigation changes ancestor markup and adds a family sentence
+// to search/social descriptions. Explicit runtime-support claims remain unchanged.
+// 2026-11-02: family copy is rendered from PRODUCT_DATA. The shared ancestor
+// serialization and entry chunk change; all explicit Codex claim manifests
+// above still deep-equal the built output before this context check.
+// Discovery metadata and the family paragraph now explicitly preserve each
+// installation/release/license/support boundary; the semantic guard above
+// prevents a later opaque re-pin from dropping those qualifiers.
 const governedCodexElementContextDigest =
-  'ca9c365b6068672103d0888d4091508f4a2843445ecc17a3e2a1ea63b189f34b';
+  'c9003ea79ebb280c676b91bde1faf7cf942924e60d5bbc581fa7cb2932ff9940';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1628,9 +1655,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "812ec4558db1784177c10c44e01e28967ff8e4eecc18f886db0658faabc75b32",
-    "assets/index-DCiD3cKr.js": "e7db30cd939372915622994edb02cbfc1760869f625b06a10a875dd9f3e066f3",
-    "assets/index-BOgiN1XQ.css": "0fdf525db3197418f9d5feaddf3bea608b2926210a8785e500fe605f417e33e1"
+    "index.html": "8b44a131c9849c46e81e766124ea0ed3553bf7b7672e1c1ce94fcdeb46987a35",
+    "assets/index-C-hd5H0i.js": "749ced6709f86452031eb0008ba0f738a6e75d5f5cfa21c84636ad38f9e3ea61",
+    "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
 }
   );
 });

@@ -27,6 +27,14 @@ export interface ProductData {
   canonical: string;
   /** SEO meta description. */
   metaDescription: string;
+  family: {
+    prefix: string;
+    name: string;
+    url: string;
+    description: string;
+    workflowLabel: string;
+    workflowUrl: string;
+  };
   problem: {
     heading: string;
     body: string;
