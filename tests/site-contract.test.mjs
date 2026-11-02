@@ -553,7 +553,7 @@ const assertStylesheetsCannotGenerateClaims = (document) => {
 const document = parseArtifact(html);
 test('family affiliation preserves independent boundaries in every discovery surface', () => {
   const requireBoundaries = (copy) => {
-    for (const term of [/Cosmocrat OS/i, /independent/i, /installation/i, /releases?/i, /licens(?:e|ing)/i, /support boundaries/i]) {
+    for (const term of [/Cosmocrat OS/i, /independent/i, /installation identifiers/i, /releases?/i, /licens(?:e|ing)/i, /support boundaries/i]) {
       assert.match(copy, term, 'Family affiliation must preserve the component boundaries');
     }
   };
@@ -625,7 +625,7 @@ const socialCardUrl = `${canonicalPageUrl}${socialCardName}`;
 const governedDocumentTitle =
   'orion-skills: 27 skills for Claude Code + 3-skill Codex starter set';
 const governedDocumentDescription =
-  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.';
+  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.';
 const governedSocialMetadata = [
   [
     'property',
@@ -635,7 +635,7 @@ const governedSocialMetadata = [
   [
     'property',
     'og:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['property', 'og:url', canonicalPageUrl],
   ['property', 'og:image', socialCardUrl],
@@ -652,7 +652,7 @@ const governedSocialMetadata = [
   [
     'name',
     'twitter:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['name', 'twitter:image', socialCardUrl],
   [
@@ -1311,7 +1311,7 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
@@ -1323,7 +1323,7 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation, releases, license and support boundaries.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
@@ -1372,10 +1372,10 @@ const governedCodexJsonLdClaims = [
 // serialization and entry chunk change; all explicit Codex claim manifests
 // above still deep-equal the built output before this context check.
 // Discovery metadata and the family paragraph now explicitly preserve each
-// installation/release/license/support boundary; the semantic guard above
+// installation identifier/release/license/support boundary; the semantic guard above
 // prevents a later opaque re-pin from dropping those qualifiers.
 const governedCodexElementContextDigest =
-  'c9003ea79ebb280c676b91bde1faf7cf942924e60d5bbc581fa7cb2932ff9940';
+  'a5ebba7cf9b5335f6258c73974a62e3533423e75295c92378d9d367e4258bfa7';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1655,8 +1655,8 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "8b44a131c9849c46e81e766124ea0ed3553bf7b7672e1c1ce94fcdeb46987a35",
-    "assets/index-C-hd5H0i.js": "749ced6709f86452031eb0008ba0f738a6e75d5f5cfa21c84636ad38f9e3ea61",
+    "index.html": "6dff23a37858d51d87c02f94a5fee8e05a4f43cdcf0d46e7d89bf98d04e4346d",
+    "assets/index-Bi0CupqS.js": "7ed421e3b5b777bd68c99607870986cf65a86b1fe3e1c7838b112ed851f41fff",
     "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
 }
   );
