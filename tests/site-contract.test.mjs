@@ -1349,8 +1349,11 @@ const governedCodexJsonLdClaims = [
 // The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
 // 2026-10-31: family navigation changes ancestor markup and adds a family sentence
 // to search/social descriptions. Explicit runtime-support claims remain unchanged.
+// 2026-11-02: family copy is rendered from PRODUCT_DATA. The shared ancestor
+// serialization and entry chunk change; all explicit Codex claim manifests
+// above still deep-equal the built output before this context check.
 const governedCodexElementContextDigest =
-  '44d8231363790a45ee0f4851388973fdb6739764fd0058de151a4550a98488f0';
+  'ac5408869b5d7936bf4c9761b214b36ae712364571c98d3ab1447b9f9429e16a';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1630,8 +1633,8 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "0a2a32ec66d3b26a31d92a77ce311cb4956f7ee13e58593dd85957d09b37d231",
-    "assets/index-ro7W5JYv.js": "2fcaac31eeec8352e16996d0dd6d89710fedf965216f4e2fa642dc1e9eee6f87",
+    "index.html": "007e2c79a66f056f1ded2fa2e65348e726e7c8b271d62b38d7a7ee49bb0ac4f8",
+    "assets/index-DugJroi9.js": "3f570cb4a46b1403ab2b3a51acfef35cbbfd6c58fe5015f6d1cb32fc576b16d9",
     "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
 }
   );

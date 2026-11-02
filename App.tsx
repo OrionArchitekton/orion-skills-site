@@ -97,7 +97,7 @@ const App: React.FC = () => {
       <main id="main-content" tabIndex={-1} className="max-w-3xl mx-auto px-6 py-12 md:py-20">
         {/* 1. Hero */}
         <header className="mb-4">
-          <p className="text-sm text-neutral-600 mb-4">Part of <a className="underline underline-offset-4 hover:text-copper-deep" href="https://www.cosmocrat.ai/">Cosmocrat OS</a>. Independently released. <a className="underline underline-offset-4 hover:text-copper-deep" href="https://www.cosmocrat.ai/docs">Choose a workflow</a>.</p>
+          <p className="text-sm text-neutral-600 mb-4">{PRODUCT_DATA.family.prefix} <a className="underline underline-offset-4 hover:text-copper-deep" href={PRODUCT_DATA.family.url}>{PRODUCT_DATA.family.name}</a>. {PRODUCT_DATA.family.description} <a className="underline underline-offset-4 hover:text-copper-deep" href={PRODUCT_DATA.family.workflowUrl}>{PRODUCT_DATA.family.workflowLabel}</a>.</p>
           <div className="font-mono text-xs text-neutral-500 mb-3">OPEN SOURCE · MIT</div>
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-4 font-mono">
             {name}

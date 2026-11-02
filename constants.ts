@@ -25,6 +25,15 @@ export const PRODUCT_DATA: ProductData = {
   metaDescription:
     'orion-skills is a curated, MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local installation; no plugin marketplace.',
 
+  family: {
+    prefix: 'Part of',
+    name: 'Cosmocrat OS',
+    url: 'https://www.cosmocrat.ai/',
+    description: 'Independently released.',
+    workflowLabel: 'Choose a workflow',
+    workflowUrl: 'https://www.cosmocrat.ai/docs',
+  },
+
   problem: {
     heading: 'The problem',
     body:
