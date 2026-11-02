@@ -606,7 +606,7 @@ const socialCardUrl = `${canonicalPageUrl}${socialCardName}`;
 const governedDocumentTitle =
   'orion-skills: 27 skills for Claude Code + 3-skill Codex starter set';
 const governedDocumentDescription =
-  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace.';
+  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace. Part of Cosmocrat OS.';
 const governedSocialMetadata = [
   [
     'property',
@@ -616,7 +616,7 @@ const governedSocialMetadata = [
   [
     'property',
     'og:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS.',
   ],
   ['property', 'og:url', canonicalPageUrl],
   ['property', 'og:image', socialCardUrl],
@@ -633,7 +633,7 @@ const governedSocialMetadata = [
   [
     'name',
     'twitter:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS.',
   ],
   ['name', 'twitter:image', socialCardUrl],
   [
@@ -1292,7 +1292,7 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS.',
   ],
   ['meta', 'content', socialCardUrl],
   [
@@ -1304,7 +1304,7 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace.',
+    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS.',
   ],
   ['meta', 'content', socialCardUrl],
   [
@@ -1347,8 +1347,10 @@ const governedCodexJsonLdClaims = [
 // source change touches no Codex string.
 // The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
 // The product demo changes shared ancestor markup; the explicit Codex claims above stay unchanged.
+// 2026-10-31: family navigation changes ancestor markup and adds a family sentence
+// to search/social descriptions. Explicit runtime-support claims remain unchanged.
 const governedCodexElementContextDigest =
-  'ca9c365b6068672103d0888d4091508f4a2843445ecc17a3e2a1ea63b189f34b';
+  '44d8231363790a45ee0f4851388973fdb6739764fd0058de151a4550a98488f0';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1628,9 +1630,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "812ec4558db1784177c10c44e01e28967ff8e4eecc18f886db0658faabc75b32",
-    "assets/index-DCiD3cKr.js": "e7db30cd939372915622994edb02cbfc1760869f625b06a10a875dd9f3e066f3",
-    "assets/index-BOgiN1XQ.css": "0fdf525db3197418f9d5feaddf3bea608b2926210a8785e500fe605f417e33e1"
+    "index.html": "0a2a32ec66d3b26a31d92a77ce311cb4956f7ee13e58593dd85957d09b37d231",
+    "assets/index-ro7W5JYv.js": "2fcaac31eeec8352e16996d0dd6d89710fedf965216f4e2fa642dc1e9eee6f87",
+    "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
 }
   );
 });
