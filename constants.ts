@@ -138,7 +138,7 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'orion-deep-research',
       description:
-        'Research workflow with honest abstention accounting, a bounded knowledge-gap loop, a judge gate and durable cited reports. The executable requires a compatible Claude Workflow tool; native execution support is unqualified. Implementation origin still needs author evidence and blocks a new whole-collection release. See the research provenance notice below.',
+        'Research workflow with honest abstention accounting, a bounded knowledge-gap loop, a judge gate and durable cited reports. The executable requires a compatible Claude Workflow tool; native execution support is unqualified. Dan Mercede attests that it was independently built with Claude’s assistance. See the research provenance notice below for the author record and its evidence limits.',
     },
     {
       name: 'pre-compact',
@@ -284,7 +284,7 @@ export const PRODUCT_DATA: ProductData = {
   links: [
     { label: 'GitHub repository', url: GITHUB, primary: true },
     { label: VERSION + ' release', url: RELEASE, primary: true },
-    { label: 'Research provenance notice', url: GITHUB + '/blob/e194bdc4e742f630eb594343ae66c2d7327dbe73/skills/orion-deep-research/PROVENANCE.md' },
+    { label: 'Research provenance notice', url: GITHUB + '/blob/267c68eacdd09581e60baa9bb4a6642722efe704/skills/orion-deep-research/PROVENANCE.md' },
     { label: 'What are Agent Skills?', url: AGENTSKILLS },
     { label: 'Dan Mercede', url: 'https://www.danmercede.com' },
   ],

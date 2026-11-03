@@ -1377,7 +1377,7 @@ const governedCodexJsonLdClaims = [
 // 2026-11-02: clarify released catalog/source provenance and Claude archive setup.
 // The three Codex installer pins, invocation and runtime-support claims are unchanged.
 const governedCodexElementContextDigest =
-  'b3f49a9c6ae208c62e60ddf5ad000395d5c133bf27fd4470efdd94cbecc95b51';
+  '6b715b1aea322dfae4b7450d03eea3d7710fd71263654984ccc90e389f33b5bc';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1657,8 +1657,8 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "1e7789873cd7b0016e7493c2b72e7a48115fd392e669cefd69975e37618adb55",
-    "assets/index-B9c5RsB5.js": "848f09a6261ee201858027c622280959865cf9a2afb551d7628135a1f0ed9185",
+    "index.html": "231164ca5fbdbaf47318a08582727dc0ec09b21cb47dc1135d52a56443a80baa",
+    "assets/index-D9kRWsQ0.js": "ae4c3f37105819a9add3c976dc6e485507ba2320ebfa21f6d081d7e16598ce76",
     "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
 }
   );
