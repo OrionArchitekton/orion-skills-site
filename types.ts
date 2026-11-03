@@ -52,6 +52,7 @@ export interface ProductData {
   quickstart: {
     heading: string;
     intro: string;
+    pluginNote: string;
     /** Each block is a titled, copy-pasteable command snippet. */
     blocks: { title: string; note?: string; command: string }[];
   };
