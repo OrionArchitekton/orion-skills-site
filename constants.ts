@@ -43,7 +43,7 @@ export const PRODUCT_DATA: ProductData = {
   whatItDoes: {
     heading: 'What it is',
     body:
-      'A small, curated set of workflow- and finish-discipline skills, not tool wrappers. The full 27-skill library targets Claude Code. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
+      'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 27 skills in v0.6.0; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   },
 
   cta: {
@@ -56,7 +56,7 @@ export const PRODUCT_DATA: ProductData = {
   quickstart: {
     heading: 'Install',
     intro:
-      'Choose your host. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Both paths are direct local installation with no plugin marketplace.',
+      'Choose your host. Run the Claude Code copy commands from the extracted v0.6.0 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Both paths are direct local installation with no plugin marketplace.',
     blocks: [
       {
         title: 'Claude Code: one skill',
@@ -138,7 +138,7 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'orion-deep-research',
       description:
-        'Fork of the native deep-research that adds honest abstention accounting (a rate-limited claim is unverified, never refuted), a bounded reflect/knowledge-gap loop, an independent judge-gate that quarantines inconclusive runs, and durable persistence of the cited report to a research vault. Self-contained and harness-agnostic.',
+        'Research workflow with honest abstention accounting, a bounded knowledge-gap loop, a judge gate and durable cited reports. The executable requires a compatible Claude Workflow tool; native execution support is unqualified. Implementation origin still needs author evidence and blocks a new whole-collection release. See the research provenance notice below.',
     },
     {
       name: 'pre-compact',
@@ -284,6 +284,7 @@ export const PRODUCT_DATA: ProductData = {
   links: [
     { label: 'GitHub repository', url: GITHUB, primary: true },
     { label: VERSION + ' release', url: RELEASE, primary: true },
+    { label: 'Research provenance notice', url: GITHUB + '/blob/e194bdc4e742f630eb594343ae66c2d7327dbe73/skills/orion-deep-research/PROVENANCE.md' },
     { label: 'What are Agent Skills?', url: AGENTSKILLS },
     { label: 'Dan Mercede', url: 'https://www.danmercede.com' },
   ],
