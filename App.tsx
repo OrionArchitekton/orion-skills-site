@@ -171,6 +171,9 @@ const App: React.FC = () => {
           <p className="text-sm text-neutral-600 leading-relaxed max-w-2xl mb-6">
             {quickstart.intro}
           </p>
+          <p className="text-sm text-neutral-600 leading-relaxed mb-6">
+            {quickstart.pluginNote}
+          </p>
           {quickstart.blocks.map((block) => (
             <CommandBlock
               key={block.title}
@@ -183,7 +186,7 @@ const App: React.FC = () => {
 
         {/* 5. Skills */}
         <section>
-          <SectionTitle index="04" title="All 27 Claude Code skills" />
+          <SectionTitle index="04" title="All 29 Claude Code skills" />
           <p className="text-sm text-neutral-600 leading-relaxed mb-6">
             Codex starter set:{' '}
             <span className="font-mono text-neutral-800">

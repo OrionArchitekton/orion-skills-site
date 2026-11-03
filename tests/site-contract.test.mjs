@@ -620,12 +620,12 @@ const starterSkills = [
   'prove-deploy-is-live',
 ];
 const verifiedSourceRef = 'c334ca499beed06892ba0a51b2698ce75e4a3e05';
-const socialCardName = 'og-card-codex-starter-020a52a51eca.png';
+const socialCardName = 'og-card-codex-starter-a8b71788adec.png';
 const socialCardUrl = `${canonicalPageUrl}${socialCardName}`;
 const governedDocumentTitle =
-  'orion-skills: 27 skills for Claude Code + 3-skill Codex starter set';
+  'orion-skills: 29 skills for Claude Code + 3-skill Codex starter set';
 const governedDocumentDescription =
-  'orion-skills is an MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.';
+  'orion-skills is an MIT-licensed library of 29 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.';
 const governedSocialMetadata = [
   [
     'property',
@@ -635,14 +635,14 @@ const governedSocialMetadata = [
   [
     'property',
     'og:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['property', 'og:url', canonicalPageUrl],
   ['property', 'og:image', socialCardUrl],
   [
     'property',
     'og:image:alt',
-    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
   ],
   [
     'name',
@@ -652,13 +652,13 @@ const governedSocialMetadata = [
   [
     'name',
     'twitter:description',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['name', 'twitter:image', socialCardUrl],
   [
     'name',
     'twitter:image:alt',
-    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
   ],
 ];
 
@@ -850,7 +850,7 @@ test('a base element cannot redirect the hydrated application', () => {
 
 test('template content cannot impersonate active document metadata', () => {
   const templateFixture = parseArtifact(
-    '<template><title>orion-skills: 27 skills for Claude Code + 3-skill Codex starter set</title></template>',
+    '<template><title>orion-skills: 29 skills for Claude Code + 3-skill Codex starter set</title></template>',
   );
 
   assert.throws(
@@ -1201,7 +1201,7 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
     );
   }
 
-  assert.match(bakedText, /27.{0,80}Claude Code/i);
+  assert.match(bakedText, /29.{0,80}Claude Code/i);
   assert.match(bakedText, /(?:three|3).{0,80}Codex/i);
   assert.match(bakedText, /separate.{0,80}(?:request|prompt)/i);
   assert.match(
@@ -1216,7 +1216,7 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
   assert.ok(
     findActiveElements(root, (node) => node.tagName === 'h2').some(
       (heading) =>
-        /All 27 Claude Code skills$/.test(activeNodeText(heading).trim()),
+        /All 29 Claude Code skills$/.test(activeNodeText(heading).trim()),
     ),
   );
   assert.match(
@@ -1260,18 +1260,18 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
 });
 
 const governedCodexElementClaims = [
-  ['title', 'orion-skills: 27 skills for Claude Code + 3-skill Codex starter set'],
+  ['title', 'orion-skills: 29 skills for Claude Code + 3-skill Codex starter set'],
   [
     'p',
     'A curated library of disciplined Agent Skills for Claude Code, with a verified Codex starter set for stale-premise, control-binding, and live-deploy proof.',
   ],
   [
     'p',
-    'Open source (MIT) · 27 skills for Claude Code · 3 verified for Codex · Loaded on demand · No plugin marketplace.',
+    'Open source (MIT) · 29 skills for Claude Code · 3 verified for Codex · Optional Claude Code plugin · No plugin marketplace.',
   ],
   [
     'p',
-    'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 27 skills in v0.6.0; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
+    'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 29 skills in v0.7.1; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   ],
   [
     'p',
@@ -1279,7 +1279,7 @@ const governedCodexElementClaims = [
   ],
   [
     'p',
-    'Choose your host. Run the Claude Code copy commands from the extracted v0.6.0 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Both paths are direct local installation with no plugin marketplace.',
+    'Choose your host. Run the Claude Code copy commands from the extracted v0.7.1 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Claude Code also offers optional session-local plugin loading from the same archive. No plugin marketplace is required.',
   ],
   ['span', 'Codex CLI: re-probe stale premises'],
   ['span', 'run as its own Codex prompt'],
@@ -1297,7 +1297,7 @@ const governedCodexElementClaims = [
   ],
   [
     'p',
-    'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Both are local skill paths with no plugin marketplace.',
+    'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Claude Code also supports optional plugin loading from the v0.7.1 checkout or extracted archive. No plugin marketplace is required.',
   ],
 ];
 
@@ -1311,25 +1311,25 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
     'meta',
     'content',
-    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
   ],
   ['meta', 'content', governedDocumentTitle],
   [
     'meta',
     'content',
-    '27 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct local install; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
     'meta',
     'content',
-    'orion-skills: 27 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
   ],
   [
     'button',
@@ -1376,8 +1376,11 @@ const governedCodexJsonLdClaims = [
 // prevents a later opaque re-pin from dropping those qualifiers.
 // 2026-11-02: clarify released catalog/source provenance and Claude archive setup.
 // The three Codex installer pins, invocation and runtime-support claims are unchanged.
+// 2026-11-02: released v0.7.1 catalog has 29 skills and optional Claude Code
+// plugin loading. Reviewed count/copy/card updates retain the same three Codex
+// installer pins and support boundary; semantic claim checks pass before re-pin.
 const governedCodexElementContextDigest =
-  '6b715b1aea322dfae4b7450d03eea3d7710fd71263654984ccc90e389f33b5bc';
+  '5d8fda156d442af2bbec9c48057463efd1ea1932af12e9a1b65fc7b34c64f69c';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1476,8 +1479,8 @@ test('the shipped artifact exposes only governed Codex claim surfaces', () => {
 
   const hiddenNarrowingDecoy = parseArtifact(
     html.replace(
-      '27 skills for Claude Code · 3 verified for Codex',
-      '27 skills for Claude Code · <span class="sr-only">3 </span>verified for Codex',
+      '29 skills for Claude Code · 3 verified for Codex',
+      '29 skills for Claude Code · <span class="sr-only">3 </span>verified for Codex',
     ),
   );
   assert.throws(
@@ -1585,7 +1588,7 @@ test('search, social, and structured metadata name both runtime surfaces', () =>
   assert.match(html, /<title>[^<]*Claude Code[^<]*Codex[^<]*<\/title>/i);
   assert.match(
     html,
-    /<meta name="description"\s+content="[^"]*27[^"]*Claude Code[^"]*three-skill Codex starter set[^"]*"/i,
+    /<meta name="description"\s+content="[^"]*29[^"]*Claude Code[^"]*three-skill Codex starter set[^"]*"/i,
   );
   assert.match(html, /<meta property="og:title" content="[^"]*Claude Code[^"]*Codex/i);
   assert.match(html, /<meta name="twitter:title" content="[^"]*Claude Code[^"]*Codex/i);
@@ -1604,14 +1607,14 @@ test('search, social, and structured metadata name both runtime surfaces', () =>
   assert.doesNotMatch(html, /\/og-card\.png/);
   assert.match(
     html,
-    /<meta property="og:image:alt" content="orion-skills: 27 Claude Code skills and a three-skill Codex starter set"/i,
+    /<meta property="og:image:alt" content="orion-skills: 29 Claude Code skills and a three-skill Codex starter set"/i,
   );
 
   const { library, codexStarter } =
     assertStructuredDataRuntimeBoundaries(document);
   assertStructuredDataRuntimeBoundaries(noScriptDocument);
   assert.equal(library.runtimePlatform, 'Claude Code');
-  assert.match(library.description, /27[^.]*Claude Code/i);
+  assert.match(library.description, /29[^.]*Claude Code/i);
   assert.doesNotMatch(library.description, /Codex/i);
   assert.deepEqual(library.hasPart, { '@id': codexStarter['@id'] });
 
@@ -1657,8 +1660,8 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "231164ca5fbdbaf47318a08582727dc0ec09b21cb47dc1135d52a56443a80baa",
-    "assets/index-D9kRWsQ0.js": "ae4c3f37105819a9add3c976dc6e485507ba2320ebfa21f6d081d7e16598ce76",
+    "index.html": "39a8c82afa1c369ef8b82c01abbbeef556a96ec7ab8d326c9331e5774547d9e6",
+    "assets/index-DGY-axWw.js": "56e4ae98cca66bbc54721f6ead1b9871e6908441ed0778d590fd6e5a4a9cbcb6",
     "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
 }
   );
@@ -1722,8 +1725,8 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // change. Grounding: orion-skills main carries
   // skills/readonly/hooks/pretooluse-readonly.sh plus selftest.py.
   // Grounded, and specific about WHICH ref: v0.5.0 (2026-07-08, only SKILL.md)
-  // predates the hook; v0.6.0, the release this page advertises, is the first
-  // cut from a main that carries it. Saying "ships in the repo" next to a
+  // predates the hook; v0.6.0 first shipped it and v0.7.1 retains it.
+  // Saying "ships in the repo" next to a
   // release call-to-action that lacks it would send a reader to an artifact
   // that cannot do what the sentence promises.
   // The COPY pins the literal historical release the claim is a fact about;

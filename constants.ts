@@ -1,7 +1,7 @@
 import { ProductData } from './types';
 
 const GITHUB = 'https://github.com/OrionArchitekton/orion-skills';
-const VERSION = 'v0.6.0';
+const VERSION = 'v0.7.1';
 const RELEASE = GITHUB + '/releases/tag/' + VERSION;
 const AGENTSKILLS = 'https://www.agentskills.io';
 const CODEX_VERIFIED_REF = 'c334ca499beed06892ba0a51b2698ce75e4a3e05';
@@ -20,10 +20,10 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of disciplined Agent Skills for Claude Code, with a verified Codex starter set for stale-premise, control-binding, and live-deploy proof.',
   credibility:
-    'Open source (MIT) · 27 skills for Claude Code · 3 verified for Codex · Loaded on demand · No plugin marketplace.',
+    'Open source (MIT) · 29 skills for Claude Code · 3 verified for Codex · Optional Claude Code plugin · No plugin marketplace.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
-    'orion-skills is a curated, MIT-licensed library of 27 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct local installation; no plugin marketplace.',
+    'orion-skills is a curated, MIT-licensed library of 29 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct install or optional Claude Code plugin loading; no plugin marketplace.',
 
   family: {
     prefix: 'Part of',
@@ -43,7 +43,7 @@ export const PRODUCT_DATA: ProductData = {
   whatItDoes: {
     heading: 'What it is',
     body:
-      'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 27 skills in v0.6.0; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
+      'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 29 skills in v0.7.1; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   },
 
   cta: {
@@ -56,15 +56,22 @@ export const PRODUCT_DATA: ProductData = {
   quickstart: {
     heading: 'Install',
     intro:
-      'Choose your host. Run the Claude Code copy commands from the extracted v0.6.0 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Both paths are direct local installation with no plugin marketplace.',
+      'Choose your host. Run the Claude Code copy commands from the extracted v0.7.1 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Claude Code also offers optional session-local plugin loading from the same archive. No plugin marketplace is required.',
+    pluginNote:
+      'Optional plugin loading was validated for discovery on Claude Code 2.1.316; native model execution remains unqualified. Invoke bundled skills as /orion-skills:pre-pr. Loading adds no hooks or MCP servers and grants no permissions. Research requires a compatible Workflow tool; delegate plugin-only execution is unsupported.',
     blocks: [
       {
         title: 'Claude Code: one skill',
         command: ['cp -r skills/ship ~/.claude/skills/ship'].join('\n'),
       },
       {
-        title: 'Claude Code: all 27 skills',
+        title: 'Claude Code: all 29 skills',
         command: ['cp -r skills/* ~/.claude/skills/'].join('\n'),
+      },
+      {
+        title: 'Claude Code: optional plugin',
+        note: 'use the absolute path to the extracted v0.7.1 archive',
+        command: 'claude --plugin-dir "/absolute/path/to/orion-skills-0.7.1"',
       },
       {
         title: 'Codex CLI: re-probe stale premises',
@@ -98,12 +105,9 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'readonly',
       description:
-        // 'v0.6.0' is deliberately a literal, not VERSION: it names the first
-        // release that carries the hook (v0.5.0 predates it). The contract test
-        // derives its expected version from VERSION, so bumping the advertised
-        // release breaks the suite and forces this sentence to be re-checked,
-        // instead of an interpolated version silently keeping a stale claim.
-        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main and in the v0.6.0 release, executable, with a selftest that proves it denies; v0.5.0 and earlier do not include it. Copying the skill does not arm it, you register the hook in your own settings; even then the hook stays inert until you set the marker with the bundled readonly-mode.sh helper. Shell writes via Bash stay outside the matcher.',
+        // Literal releases force re-verification when VERSION changes:
+        // v0.6.0 first shipped the hook; v0.7.1 retains it and its selftest.
+        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main and in the v0.7.1 release, executable, with a selftest that proves it denies. It first shipped in v0.6.0; v0.5.0 and earlier do not include it. Copying the skill does not arm it, you register the hook in your own settings; even then the hook stays inert until you set the marker with the bundled readonly-mode.sh helper. Shell writes via Bash stay outside the matcher.',
     },
     {
       name: 'scope-guard',
@@ -119,6 +123,16 @@ export const PRODUCT_DATA: ProductData = {
       name: 'pre-pr',
       description:
         'Repo-contract-aware preflight: detect the base branch, run repo-local checks, secret-scan the diff, and report severity-graded findings before you open a PR.',
+    },
+    {
+      name: 'reassert-guards-on-rewrite',
+      description:
+        'Traces original guards through a rewrite and probes denial before the protected effect on every affected entry point. Includes a synthetic tenant-write example.',
+    },
+    {
+      name: 'apply-review-findings',
+      description:
+        'Revalidates attributed findings at the current target, records evidence-backed dispositions, and binds final verification to immutable source.',
     },
     {
       name: 'incident-as-code',
@@ -242,7 +256,7 @@ export const PRODUCT_DATA: ProductData = {
     intro:
       'The full Claude Code library uses slash-command invocation or description matching. Codex exposes the verified starter skills with its native $skill-name invocation after installation.',
     lines: [
-      { kind: 'comment', text: '# Install — Claude Code auto-loads ~/.claude/skills/ (no plugin, no marketplace)' },
+      { kind: 'comment', text: '# Direct install — Claude Code auto-loads ~/.claude/skills/' },
       { kind: 'command', text: 'cp -r skills/* ~/.claude/skills/' },
       { kind: 'output', text: '' },
       { kind: 'comment', text: '# Invoke by name — or let the model auto-invoke when the task matches:' },
@@ -264,9 +278,9 @@ export const PRODUCT_DATA: ProductData = {
           'These don’t wrap an API or a service. They encode the finish-discipline habits that keep an autonomous agent honest — verify before “done”, stay inside declared scope, capture the lesson — extracted from real production operator workflows.',
       },
       {
-        title: 'No plugin, no marketplace',
+        title: 'Direct install or optional plugin',
         body:
-          'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Both are local skill paths with no plugin marketplace.',
+          'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Claude Code also supports optional plugin loading from the v0.7.1 checkout or extracted archive. No plugin marketplace is required.',
       },
       {
         title: 'Loaded on demand',
