@@ -6,9 +6,9 @@ import Color from 'colorjs.io';
 
 const ROOT = join(import.meta.dirname, '..');
 
-function resolveToken(tokens: Record<string, any>, ref: string): string {
+function resolveToken(tokens, ref) {
   const parts = ref.split('.');
-  let cur: any = tokens;
+  let cur = tokens;
   for (const part of parts) {
     cur = cur?.[part];
   }
