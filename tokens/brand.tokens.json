@@ -1,0 +1,44 @@
+{
+  "$extensions": {
+    "com.orion.brand": {
+      "id": "orion-skills-site",
+      "name": "orion-skills",
+      "archetype": "WorksInteractiveSandbox",
+      "polarity": "dark",
+      "domain": "danmercede.com/works/orion-skills/"
+    },
+    "com.orion.contrastPairs": [
+      { "name": "body-on-bg", "fg": "color.fg", "bg": "color.bg", "level": "normal" },
+      { "name": "body-on-surface", "fg": "color.fg", "bg": "color.surface", "level": "normal" },
+      { "name": "body-on-elevated", "fg": "color.fg", "bg": "color.surfaceElevated", "level": "normal" },
+      { "name": "prose-on-bg", "fg": "color.fgSecondary", "bg": "color.bg", "level": "normal" },
+      { "name": "muted-on-bg", "fg": "color.fgMuted", "bg": "color.bg", "level": "normal" },
+      { "name": "muted-on-surface", "fg": "color.fgMuted", "bg": "color.surface", "level": "normal" },
+      { "name": "muted-on-elevated", "fg": "color.fgMuted", "bg": "color.surfaceElevated", "level": "normal" },
+      { "name": "cta-label-on-accent", "fg": "color.accentFg", "bg": "color.accent", "level": "normal" },
+      { "name": "cta-label-on-hover", "fg": "color.accentFg", "bg": "color.accentHover", "level": "normal" },
+      { "name": "accent-text-on-bg", "fg": "color.accentHover", "bg": "color.bg", "level": "normal" },
+      { "name": "accent-text-on-surface", "fg": "color.accentHover", "bg": "color.surface", "level": "normal" },
+      { "name": "border-on-bg", "fg": "color.border", "bg": "color.bg", "level": "ui" },
+      { "name": "status-ok-on-surface", "fg": "color.statusOk", "bg": "color.surface", "level": "normal" },
+      { "name": "status-warn-on-surface", "fg": "color.statusWarn", "bg": "color.surface", "level": "normal" },
+      { "name": "status-fail-on-surface", "fg": "color.statusFail", "bg": "color.surface", "level": "normal" }
+    ]
+  },
+  "color": {
+    "bg": { "$type": "color", "$value": "#040D24", "$description": "Deep Slate-Navy canvas" },
+    "surface": { "$type": "color", "$value": "#091638", "$description": "Raised sandbox panel surface" },
+    "surfaceElevated": { "$type": "color", "$value": "#102252", "$description": "Elevated interactive surface" },
+    "border": { "$type": "color", "$value": "#64748B", "$description": "Visible structural border (>=3:1)" },
+    "fg": { "$type": "color", "$value": "#F8FAFC", "$description": "Primary archival ink" },
+    "fgSecondary": { "$type": "color", "$value": "#E2E8F0", "$description": "Secondary prose ink" },
+    "fgMuted": { "$type": "color", "$value": "#94A3B8", "$description": "Metadata slate ink" },
+    "accent": { "$type": "color", "$value": "#E68249", "$description": "Copper Mid primary CTA fill" },
+    "accentHover": { "$type": "color", "$value": "#F0975A", "$description": "Copper 400 hover state and inline markers" },
+    "accentFg": { "$type": "color", "$value": "#020B29", "$description": "Midnight Navy ink on solid copper fills" },
+    "focusRing": { "$type": "color", "$value": "#FFC08B", "$description": "Copper Light focus indicator" },
+    "statusOk": { "$type": "color", "$value": "#4ADE80", "$description": "Emerald token-savings indicator" },
+    "statusWarn": { "$type": "color", "$value": "#FBBF24", "$description": "Amber starter-pack indicator" },
+    "statusFail": { "$type": "color", "$value": "#F87171", "$description": "Coral preloaded-budget warning" }
+  }
+}
