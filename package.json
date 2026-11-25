@@ -20,6 +20,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "colorjs.io": "^0.7.1",
     "parse5": "8.0.1",
     "postcss": "^8.5.23",
     "tailwindcss": "^4.3.3",

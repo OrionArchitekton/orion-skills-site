@@ -10,10 +10,14 @@ const SOURCE_FILES = [
   '../ProductDemo.tsx',
   '../index.html',
   '../index.tsx',
+  '../index.css',
   '../types.ts',
   '../vite-plugin-bodybake.ts',
   '../vite.config.ts',
   '../tailwind.config.js',
+  '../DESIGN.md',
+  '../tokens/brand.tokens.json',
+  './brandContrast.test.ts',
 ];
 
 test('source files contain zero U+2013/U+2014/U+2015 long dashes', () => {

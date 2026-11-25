@@ -1381,8 +1381,11 @@ const governedCodexJsonLdClaims = [
 // installer pins and support boundary; semantic claim checks pass before re-pin.
 // 2026-11-24: removed U+2014 em-dashes from non-Codex copy in constants.ts.
 // Semantic element, attribute, and JSON-LD Codex claim manifests remain identical.
+// 2026-11-25: restyled to Archetype B (WorksInteractiveSandbox) Deep Slate-Navy
+// layout with token-budget visualizer and catalog search/filter. All semantic
+// element, attribute, and JSON-LD Codex claim manifests remain identical.
 const governedCodexElementContextDigest =
-  '1054c402b6867d48ac85a9b959dae462c69ee521be0a015385f5aeb1598fce83';
+  '363fe8f8fa621df2e72dfbffe8334cbeb9bb94fd7daa78d3e7d50970fb8d038e';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1459,8 +1462,8 @@ test('the shipped artifact exposes only governed Codex claim surfaces', () => {
 
   const ancestorDecoy = parseArtifact(
     html.replace(
-      '<span class="text-sm font-medium text-neutral-900">Codex CLI: re-probe stale premises</span>',
-      '<div>Every skill supports <span class="text-sm font-medium text-neutral-900">Codex CLI: re-probe stale premises</span></div>',
+      '<span class="text-sm font-medium text-[#F8FAFC]">Codex CLI: re-probe stale premises</span>',
+      '<div>Every skill supports <span class="text-sm font-medium text-[#F8FAFC]">Codex CLI: re-probe stale premises</span></div>',
     ),
   );
   assert.throws(
@@ -1662,9 +1665,9 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "685d44fde087f27efcf3fe8e383321f18e537130d882a2369565306859449a54",
-    "assets/index-DfLvfPVt.js": "78670b37d6d054cef5763e17c30b57c6ba13329f5626474208e0939ab0bd1d40",
-    "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
+    "index.html": "ec2794ca8b9c5fd998162fc15fc8f43806375aa8c623ad3a1038692645d39215",
+    "assets/index-DVJgQeu1.js": "e396233da39d2a3436f4278874d5b0b91f69e4251b0bfa20344958d02d93fc7f",
+    "assets/index-CeTIpKDn.css": "e2edeb3c91740439c2e890bdfc9d3df8e26a079488e8dc4423faa2e3de41f528"
   }
   );
 });
