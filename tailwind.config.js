@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 // Bundled Tailwind config (mirrors the danmercede-info template). Vite emits a
-// compiled stylesheet at build time — no render-blocking CDN JIT compiler. The
+// compiled stylesheet at build time (no render-blocking CDN JIT compiler). The
 // build-time body-bake (vite-plugin-bodybake.ts) is in the content globs so the
 // skip-link / landmark classes it emits into the baked, pre-hydration markup are
 // not purged. `extend` merges with (does not replace) the default palette, so

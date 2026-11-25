@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { bodyBake } from './vite-plugin-bodybake';
 
 // Mirrors the danmercede-info template scaffold. The template's GEMINI_API_KEY
-// `define` block is identity-spoke-specific and is intentionally dropped here —
+// `define` block is identity-spoke-specific and is intentionally dropped here:
 // this product microsite needs no API key.
 export default defineConfig({
   base: '/works/orion-skills/',

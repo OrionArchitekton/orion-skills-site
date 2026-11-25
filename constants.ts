@@ -37,7 +37,7 @@ export const PRODUCT_DATA: ProductData = {
   problem: {
     heading: 'The problem',
     body:
-      'An autonomous coding agent will happily say “done” before runtime is verified, edit outside the scope you set, lose the lesson it just learned, and bloat its base prompt with procedures it rarely needs. The gap isn’t capability — it’s discipline: the boring, high-leverage habits a senior engineer applies without thinking.',
+      'An autonomous coding agent will happily say “done” before runtime is verified, edit outside the scope you set, lose the lesson it just learned, and bloat its base prompt with procedures it rarely needs. The gap isn’t capability; it’s discipline: the boring, high-leverage habits a senior engineer applies without thinking.',
   },
 
   whatItDoes: {
@@ -100,7 +100,7 @@ export const PRODUCT_DATA: ProductData = {
     'prove-deploy-is-live',
   ],
 
-  // The skill catalog — verified against README.md + the skills/ directory.
+  // The skill catalog, verified against README.md + the skills/ directory.
   commands: [
     {
       name: 'readonly',
@@ -137,7 +137,7 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'incident-as-code',
       description:
-        'Closes a resolved incident by committing a docs/solutions/ doc (and a runbook when recurrent) into the affected repo — the incident isn’t closed until that lands.',
+        'Closes a resolved incident by committing a docs/solutions/ doc (and a runbook when recurrent) into the affected repo: the incident isn’t closed until that lands.',
     },
     {
       name: 'learn-capture',
@@ -162,32 +162,32 @@ export const PRODUCT_DATA: ProductData = {
     {
       name: 'x',
       description:
-        'Post to X — manually or autonomously — behind a fail-closed harness: a redactor that abstains rather than leak, a per-day cap, and an arm-flag so it ships DISARMED. Direct OAuth1.0a, stdlib-only.',
+        'Post to X (manually or autonomously) behind a fail-closed harness: a redactor that abstains rather than leak, a per-day cap, and an arm-flag so it ships DISARMED. Direct OAuth1.0a, stdlib-only.',
     },
     {
       name: 'gist',
       description:
-        'Publish an embeddable PUBLIC gist of already-public content — fetched over the unauthenticated raw URL so world-readability is structural, not a promise. Redactor backstop, per-day cap, ships DISARMED.',
+        'Publish an embeddable PUBLIC gist of already-public content, fetched over the unauthenticated raw URL so world-readability is structural, not a promise. Redactor backstop, per-day cap, ships DISARMED.',
     },
     {
       name: 'tdd-loop',
       description:
-        'Drives a spec to a CI-green PR through a self-correcting RED→GREEN→REFACTOR loop where every “green” binds to an artifact — a computed diff fed to review, a clean secret-scan report, a captured test exit code — never self-reporting. Self-contained and harness-agnostic.',
+        'Drives a spec to a CI-green PR through a self-correcting RED→GREEN→REFACTOR loop where every “green” binds to an artifact (a computed diff fed to review, a clean secret-scan report, a captured test exit code), never self-reporting. Self-contained and harness-agnostic.',
     },
     {
       name: 'oss-loop',
       description:
-        'Carries an OSS tool from idea to a shipped, published release through one operator-gates-only loop — the agent does everything reversible, a human touches only the irreversible gates (publish, merge, tag, DNS, secrets). Composes your prompt, research, TDD, and launch skills; verifies the live source of truth before “shipped”.',
+        'Carries an OSS tool from idea to a shipped, published release through one operator-gates-only loop: the agent does everything reversible, and a human touches only the irreversible gates (publish, merge, tag, DNS, secrets). Composes your prompt, research, TDD, and launch skills; verifies the live source of truth before “shipped”.',
     },
     {
       name: 'chain-launcher',
       description:
-        'After a research/decision plan is approved, surfaces the exact next command for the implement phase so it isn’t re-derived — a frictionless handoff that never auto-crosses the human approval gate.',
+        'After a research/decision plan is approved, surfaces the exact next command for the implement phase so it isn’t re-derived, providing a frictionless handoff that never auto-crosses the human approval gate.',
     },
     {
       name: 'tools-router',
       description:
-        'A periodic recon builds a low-token, auth-aware index of the CLIs and MCP servers an agent can reach — preferring a working CLI over its MCP — and a thin fail-open hook injects it. Redundancy is judged by which side actually works (never existence), and probe output is captured as redacted enums, never raw secrets.',
+        'A periodic recon builds a low-token, auth-aware index of the CLIs and MCP servers an agent can reach (preferring a working CLI over its MCP), and a thin fail-open hook injects it. Redundancy is judged by which side actually works (never existence), and probe output is captured as redacted enums, never raw secrets.',
     },
     {
       name: 'prove-deploy-is-live',
@@ -256,12 +256,12 @@ export const PRODUCT_DATA: ProductData = {
     intro:
       'The full Claude Code library uses slash-command invocation or description matching. Codex exposes the verified starter skills with its native $skill-name invocation after installation.',
     lines: [
-      { kind: 'comment', text: '# Direct install — Claude Code auto-loads ~/.claude/skills/' },
+      { kind: 'comment', text: '# Direct install: Claude Code auto-loads ~/.claude/skills/' },
       { kind: 'command', text: 'cp -r skills/* ~/.claude/skills/' },
       { kind: 'output', text: '' },
-      { kind: 'comment', text: '# Invoke by name — or let the model auto-invoke when the task matches:' },
+      { kind: 'comment', text: '# Invoke by name, or let the model auto-invoke when the task matches:' },
       { kind: 'command', text: '/ship' },
-      { kind: 'output', text: '→ RED/GREEN tests · PR · adversarial review · runtime verify — before “done”', tone: 'muted' },
+      { kind: 'output', text: '→ RED/GREEN tests · PR · adversarial review · runtime verify (before “done”)', tone: 'muted' },
       { kind: 'command', text: '/pre-pr' },
       { kind: 'output', text: '→ detect base branch · run repo checks · secret-scan the diff · severity-graded report', tone: 'muted' },
       { kind: 'command', text: '/pre-compact' },
@@ -275,7 +275,7 @@ export const PRODUCT_DATA: ProductData = {
       {
         title: 'Discipline, not tools',
         body:
-          'These don’t wrap an API or a service. They encode the finish-discipline habits that keep an autonomous agent honest — verify before “done”, stay inside declared scope, capture the lesson — extracted from real production operator workflows.',
+          'These don’t wrap an API or a service. They encode the finish-discipline habits that keep an autonomous agent honest (verify before “done”, stay inside declared scope, capture the lesson), extracted from real production operator workflows.',
       },
       {
         title: 'Direct install or optional plugin',
@@ -285,12 +285,12 @@ export const PRODUCT_DATA: ProductData = {
       {
         title: 'Loaded on demand',
         body:
-          'A sharp description is the only thing the model sees when deciding to invoke — so a skill is pulled in only when the task matches, keeping specialized procedure out of the base prompt (progressive disclosure).',
+          'A sharp description is the only thing the model sees when deciding to invoke, so a skill is pulled in only when the task matches, keeping specialized procedure out of the base prompt (progressive disclosure).',
       },
       {
         title: 'Curated and opinionated',
         body:
-          'A small, deliberately-bounded set — not a sprawling community catalog. New-skill PRs are generally declined on purpose; the value is the curation.',
+          'A small, deliberately-bounded set, not a sprawling community catalog. New-skill PRs are generally declined on purpose; the value is the curation.',
       },
     ],
   },

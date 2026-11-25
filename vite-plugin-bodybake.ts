@@ -29,11 +29,11 @@ export function bodyBake(): Plugin {
       order: 'post',
       handler(html: string) {
         const baked = renderBakedBody();
-        // Fail loud if the rendered body is empty/headingless — prefer a hard
+        // Fail loud if the rendered body is empty/headingless; prefer a hard
         // build failure over silently shipping a blank crawler body.
         if (!/<h1[ >]/.test(baked) || !/<p[ >]/.test(baked)) {
           throw new Error(
-            'body-bake: rendered body is missing an <h1> or <p> — refusing to emit empty crawler content',
+            'body-bake: rendered body is missing an <h1> or <p>; refusing to emit empty crawler content',
           );
         }
         // Use a replacer function so any `$` in `baked` (dynamic data) is treated

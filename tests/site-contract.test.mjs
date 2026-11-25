@@ -1379,8 +1379,10 @@ const governedCodexJsonLdClaims = [
 // 2026-11-02: released v0.7.1 catalog has 29 skills and optional Claude Code
 // plugin loading. Reviewed count/copy/card updates retain the same three Codex
 // installer pins and support boundary; semantic claim checks pass before re-pin.
+// 2026-11-24: removed U+2014 em-dashes from non-Codex copy in constants.ts.
+// Semantic element, attribute, and JSON-LD Codex claim manifests remain identical.
 const governedCodexElementContextDigest =
-  '5d8fda156d442af2bbec9c48057463efd1ea1932af12e9a1b65fc7b34c64f69c';
+  '1054c402b6867d48ac85a9b959dae462c69ee521be0a015385f5aeb1598fce83';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1660,10 +1662,10 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "39a8c82afa1c369ef8b82c01abbbeef556a96ec7ab8d326c9331e5774547d9e6",
-    "assets/index-DGY-axWw.js": "56e4ae98cca66bbc54721f6ead1b9871e6908441ed0778d590fd6e5a4a9cbcb6",
+    "index.html": "685d44fde087f27efcf3fe8e383321f18e537130d882a2369565306859449a54",
+    "assets/index-DfLvfPVt.js": "78670b37d6d054cef5763e17c30b57c6ba13329f5626474208e0939ab0bd1d40",
     "assets/index-5svCbiiR.css": "ce573f2af8d48ede66ddb44267cb713acbebd7c3a879f05b16122a9e3f0eec1d"
-}
+  }
   );
 });
 
