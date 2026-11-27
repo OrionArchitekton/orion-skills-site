@@ -1,7 +1,7 @@
 import { ProductData } from './types';
 
 const GITHUB = 'https://github.com/OrionArchitekton/orion-skills';
-const VERSION = 'v0.7.1';
+const VERSION = 'v1.0.0';
 const RELEASE = GITHUB + '/releases/tag/' + VERSION;
 const AGENTSKILLS = 'https://www.agentskills.io';
 const CODEX_VERIFIED_REF = 'c334ca499beed06892ba0a51b2698ce75e4a3e05';
@@ -20,10 +20,10 @@ export const PRODUCT_DATA: ProductData = {
   tagline:
     'A curated library of disciplined Agent Skills for Claude Code, with a verified Codex starter set for stale-premise, control-binding, and live-deploy proof.',
   credibility:
-    'Open source (MIT) · 29 skills for Claude Code · 3 verified for Codex · Optional Claude Code plugin · No plugin marketplace.',
+    'Open source (MIT) · 32 skills for Claude Code · 3 verified for Codex · Claude Code plugin · Gemini CLI extension.',
   canonical: 'https://www.danmercede.com/works/orion-skills/',
   metaDescription:
-    'orion-skills is a curated, MIT-licensed library of 29 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct install or optional Claude Code plugin loading; no plugin marketplace.',
+    'orion-skills is a curated, MIT-licensed library of 32 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct install, a Claude Code plugin from the repository, or a Gemini CLI extension.',
 
   family: {
     prefix: 'Part of',
@@ -43,7 +43,7 @@ export const PRODUCT_DATA: ProductData = {
   whatItDoes: {
     heading: 'What it is',
     body:
-      'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 29 skills in v0.7.1; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
+      'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 32 skills in v1.0.0; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   },
 
   cta: {
@@ -56,7 +56,7 @@ export const PRODUCT_DATA: ProductData = {
   quickstart: {
     heading: 'Install',
     intro:
-      'Choose your host. Run the Claude Code copy commands from the extracted v0.7.1 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Claude Code also offers optional session-local plugin loading from the same archive. No plugin marketplace is required.',
+      'Choose your host. Run the Claude Code copy commands from the extracted v1.0.0 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Claude Code also loads it as a session-local plugin from the same archive or a repository checkout, and Gemini CLI installs the repository as an extension.',
     pluginNote:
       'Optional plugin loading was validated for discovery on Claude Code 2.1.316; native model execution remains unqualified. Invoke bundled skills as /orion-skills:pre-pr. Loading adds no hooks or MCP servers and grants no permissions. Research requires a compatible Workflow tool; delegate plugin-only execution is unsupported.',
     blocks: [
@@ -65,13 +65,18 @@ export const PRODUCT_DATA: ProductData = {
         command: ['cp -r skills/ship ~/.claude/skills/ship'].join('\n'),
       },
       {
-        title: 'Claude Code: all 29 skills',
+        title: 'Claude Code: all 32 skills',
         command: ['cp -r skills/* ~/.claude/skills/'].join('\n'),
       },
       {
         title: 'Claude Code: optional plugin',
-        note: 'use the absolute path to the extracted v0.7.1 archive',
-        command: 'claude --plugin-dir "/absolute/path/to/orion-skills-0.7.1"',
+        note: 'use the absolute path to the extracted v1.0.0 archive',
+        command: 'claude --plugin-dir "/absolute/path/to/orion-skills-1.0.0"',
+      },
+      {
+        title: 'Gemini CLI: extension',
+        note: 'skill discovery verified; Claude Code remains the full-library host',
+        command: 'gemini extensions install ' + GITHUB,
       },
       {
         title: 'Codex CLI: re-probe stale premises',
@@ -106,8 +111,8 @@ export const PRODUCT_DATA: ProductData = {
       name: 'readonly',
       description:
         // Literal releases force re-verification when VERSION changes:
-        // v0.6.0 first shipped the hook; v0.7.1 retains it and its selftest.
-        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main and in the v0.7.1 release, executable, with a selftest that proves it denies. It first shipped in v0.6.0; v0.5.0 and earlier do not include it. Copying the skill does not arm it, you register the hook in your own settings; even then the hook stays inert until you set the marker with the bundled readonly-mode.sh helper. Shell writes via Bash stay outside the matcher.',
+        // v0.6.0 first shipped the hook; v1.0.0 retains it and its selftest.
+        'Structural read-only session mode: sets a marker a PreToolUse hook reads to DENY the file-editing tools (Edit/Write/MultiEdit/NotebookEdit) until cleared. The hook ships on main and in the v1.0.0 release, executable, with a selftest that proves it denies. It first shipped in v0.6.0; v0.5.0 and earlier do not include it. Copying the skill does not arm it, you register the hook in your own settings; even then the hook stays inert until you set the marker with the bundled readonly-mode.sh helper. Shell writes via Bash stay outside the matcher.',
     },
     {
       name: 'scope-guard',
@@ -249,6 +254,21 @@ export const PRODUCT_DATA: ProductData = {
       description:
         'Hands a task to a bot in xAI’s Grok Bot desktop app through the documented routine webhook, and gets the result back through an outbox file the bot writes with the app’s local execution, so no UI is touched. Also reads any bot’s chat from the app’s local cache. It never resends a task that might already be running.',
     },
+    {
+      name: 'orion-web-director',
+      description:
+        'Directs the 9-stage studio lifecycle when starting or restyling a website or web app: chooses an asymmetric layout archetype, pairs typography, defines OKLCH tonal tokens, and gates commercial licenses.',
+    },
+    {
+      name: 'orion-frontend-builder',
+      description:
+        'Implements directed frontend specs into code with @orion/registry primitives, semantic landmarks, >=44px primary CTA targets, self-hosted @fontsource-variable fonts, orion-media assets, and prefers-reduced-motion guards.',
+    },
+    {
+      name: 'web-render-reviewer',
+      description:
+        'Stage-6 fresh-context critique of an orion-web-capture bundle (375, 768, 1280 fold and full PNGs, Axe, html-validate, colorjs.io, links, forms, and Impeccable detector) against a named reference.',
+    },
   ],
 
   demo: {
@@ -278,9 +298,9 @@ export const PRODUCT_DATA: ProductData = {
           'These don’t wrap an API or a service. They encode the finish-discipline habits that keep an autonomous agent honest (verify before “done”, stay inside declared scope, capture the lesson), extracted from real production operator workflows.',
       },
       {
-        title: 'Direct install or optional plugin',
+        title: 'Direct install, plugin, or extension',
         body:
-          'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Claude Code also supports optional plugin loading from the v0.7.1 checkout or extracted archive. No plugin marketplace is required.',
+          'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Claude Code also loads it as a plugin from the v1.0.0 checkout or extracted archive, and Gemini CLI installs the repository as an extension, where skill discovery is verified.',
       },
       {
         title: 'Loaded on demand',

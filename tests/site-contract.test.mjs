@@ -620,12 +620,12 @@ const starterSkills = [
   'prove-deploy-is-live',
 ];
 const verifiedSourceRef = 'c334ca499beed06892ba0a51b2698ce75e4a3e05';
-const socialCardName = 'og-card-codex-starter-a8b71788adec.png';
+const socialCardName = 'og-card-codex-starter-e269432189e0.png';
 const socialCardUrl = `${canonicalPageUrl}${socialCardName}`;
 const governedDocumentTitle =
-  'orion-skills: 29 skills for Claude Code + 3-skill Codex starter set';
+  'orion-skills: 32 skills for Claude Code + 3-skill Codex starter set';
 const governedDocumentDescription =
-  'orion-skills is an MIT-licensed library of 29 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.';
+  'orion-skills is an MIT-licensed library of 32 Agent Skills for Claude Code, plus a verified three-skill Codex starter set for stale-premise, control-binding, and live-deploy proof. Direct install, a Claude Code plugin from the repository, or a Gemini CLI extension. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.';
 const governedSocialMetadata = [
   [
     'property',
@@ -635,14 +635,14 @@ const governedSocialMetadata = [
   [
     'property',
     'og:description',
-    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '32 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install, a Claude Code plugin from the repository, or a Gemini CLI extension. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['property', 'og:url', canonicalPageUrl],
   ['property', 'og:image', socialCardUrl],
   [
     'property',
     'og:image:alt',
-    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 32 Claude Code skills and a three-skill Codex starter set',
   ],
   [
     'name',
@@ -652,13 +652,13 @@ const governedSocialMetadata = [
   [
     'name',
     'twitter:description',
-    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '32 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install, a Claude Code plugin from the repository, or a Gemini CLI extension. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['name', 'twitter:image', socialCardUrl],
   [
     'name',
     'twitter:image:alt',
-    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 32 Claude Code skills and a three-skill Codex starter set',
   ],
 ];
 
@@ -850,7 +850,7 @@ test('a base element cannot redirect the hydrated application', () => {
 
 test('template content cannot impersonate active document metadata', () => {
   const templateFixture = parseArtifact(
-    '<template><title>orion-skills: 29 skills for Claude Code + 3-skill Codex starter set</title></template>',
+    '<template><title>orion-skills: 32 skills for Claude Code + 3-skill Codex starter set</title></template>',
   );
 
   assert.throws(
@@ -1201,14 +1201,15 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
     );
   }
 
-  assert.match(bakedText, /29.{0,80}Claude Code/i);
+  assert.match(bakedText, /32.{0,80}Claude Code/i);
   assert.match(bakedText, /(?:three|3).{0,80}Codex/i);
   assert.match(bakedText, /separate.{0,80}(?:request|prompt)/i);
   assert.match(
     bakedText,
     /already exists.{0,120}inspect or (?:deliberately )?update.{0,120}continue.{0,80}(?:other|remaining) prompts/i,
   );
-  assert.match(bakedText, /no plugin marketplace|not a plugin.{0,40}marketplace/i);
+  assert.match(bakedText, /gemini extensions install https:\/\/github\.com\/OrionArchitekton\/orion-skills/i);
+  assert.doesNotMatch(bakedText, /no plugin marketplace/i);
   assert.match(
     bakedText,
     new RegExp(`pinned.{0,80}${verifiedSourceRef.slice(0, 7)}`, 'i'),
@@ -1216,7 +1217,7 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
   assert.ok(
     findActiveElements(root, (node) => node.tagName === 'h2').some(
       (heading) =>
-        /All 29 Claude Code skills$/.test(activeNodeText(heading).trim()),
+        /All 32 Claude Code skills$/.test(activeNodeText(heading).trim()),
     ),
   );
   assert.match(
@@ -1260,18 +1261,18 @@ test('the JavaScript-free body exposes the exact Codex starter install path', ()
 });
 
 const governedCodexElementClaims = [
-  ['title', 'orion-skills: 29 skills for Claude Code + 3-skill Codex starter set'],
+  ['title', 'orion-skills: 32 skills for Claude Code + 3-skill Codex starter set'],
   [
     'p',
     'A curated library of disciplined Agent Skills for Claude Code, with a verified Codex starter set for stale-premise, control-binding, and live-deploy proof.',
   ],
   [
     'p',
-    'Open source (MIT) · 29 skills for Claude Code · 3 verified for Codex · Optional Claude Code plugin · No plugin marketplace.',
+    'Open source (MIT) · 32 skills for Claude Code · 3 verified for Codex · Claude Code plugin · Gemini CLI extension.',
   ],
   [
     'p',
-    'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 29 skills in v0.7.1; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
+    'A curated collection of Orion-authored and adapted workflow skills. This catalog describes the 32 skills in v1.0.0; GitHub main may contain unreleased changes. The full library targets Claude Code, subject to each skill’s host requirements and source notices. The Codex starter set is the exact three portable verification disciplines validated by the source project. Each is a folder with a SKILL.md that loads on demand when the task matches, keeping specialized procedure out of the base prompt.',
   ],
   [
     'p',
@@ -1279,7 +1280,7 @@ const governedCodexElementClaims = [
   ],
   [
     'p',
-    'Choose your host. Run the Claude Code copy commands from the extracted v0.7.1 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Claude Code also offers optional session-local plugin loading from the same archive. No plugin marketplace is required.',
+    'Choose your host. Run the Claude Code copy commands from the extracted v1.0.0 source archive linked in the release above; review each skill’s setup and source notices. Claude Code can load the full library from ~/.claude/skills/. Codex users can install the verified three-skill starter set directly from GitHub. The Codex requests are pinned to reviewed source c334ca4; run each installer request as a separate Codex prompt. If one skill already exists, inspect or deliberately update that installation, then continue with the other prompts; one existing destination cannot prevent the other skills from being installed. Claude Code also loads it as a session-local plugin from the same archive or a repository checkout, and Gemini CLI installs the repository as an extension.',
   ],
   ['span', 'Codex CLI: re-probe stale premises'],
   ['span', 'run as its own Codex prompt'],
@@ -1297,7 +1298,7 @@ const governedCodexElementClaims = [
   ],
   [
     'p',
-    'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Claude Code also supports optional plugin loading from the v0.7.1 checkout or extracted archive. No plugin marketplace is required.',
+    'Claude Code loads copied folders from ~/.claude/skills/. Codex installs the verified starter set directly from the source repository. Claude Code also loads it as a plugin from the v1.0.0 checkout or extracted archive, and Gemini CLI installs the repository as an extension, where skill discovery is verified.',
   ],
 ];
 
@@ -1311,25 +1312,25 @@ const governedCodexAttributeClaims = [
   [
     'meta',
     'content',
-    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '32 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install, a Claude Code plugin from the repository, or a Gemini CLI extension. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
     'meta',
     'content',
-    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 32 Claude Code skills and a three-skill Codex starter set',
   ],
   ['meta', 'content', governedDocumentTitle],
   [
     'meta',
     'content',
-    '29 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install or optional Claude Code plugin loading; no plugin marketplace. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
+    '32 disciplined Agent Skills for Claude Code, plus a verified three-skill Codex starter set. Direct install, a Claude Code plugin from the repository, or a Gemini CLI extension. Part of Cosmocrat OS; independent installation identifiers, releases, license and support boundaries.',
   ],
   ['meta', 'content', socialCardUrl],
   [
     'meta',
     'content',
-    'orion-skills: 29 Claude Code skills and a three-skill Codex starter set',
+    'orion-skills: 32 Claude Code skills and a three-skill Codex starter set',
   ],
   [
     'button',
@@ -1384,8 +1385,12 @@ const governedCodexJsonLdClaims = [
 // 2026-11-25: restyled to Archetype B (WorksInteractiveSandbox) Deep Slate-Navy
 // layout with token-budget visualizer and catalog search/filter. All semantic
 // element, attribute, and JSON-LD Codex claim manifests remain identical.
+// 2026-11-26: released v1.0.0 catalog has 32 skills; install copy names the
+// Claude Code plugin and Gemini CLI extension paths. The three Codex installer
+// pins, c334ca4 source pin and support boundary are unchanged; the reviewed
+// count updates pass the semantic claim checks above before this re-pin.
 const governedCodexElementContextDigest =
-  '363fe8f8fa621df2e72dfbffe8334cbeb9bb94fd7daa78d3e7d50970fb8d038e';
+  '0ff08e0a1e5283b7a4185b4d751da0128d185523b2c758b6da1babbebc114cab';
 
 const codexElementClaims = (document) => {
   const containsCodex = (node) =>
@@ -1484,8 +1489,8 @@ test('the shipped artifact exposes only governed Codex claim surfaces', () => {
 
   const hiddenNarrowingDecoy = parseArtifact(
     html.replace(
-      '29 skills for Claude Code · 3 verified for Codex',
-      '29 skills for Claude Code · <span class="sr-only">3 </span>verified for Codex',
+      '32 skills for Claude Code · 3 verified for Codex',
+      '32 skills for Claude Code · <span class="sr-only">3 </span>verified for Codex',
     ),
   );
   assert.throws(
@@ -1593,7 +1598,7 @@ test('search, social, and structured metadata name both runtime surfaces', () =>
   assert.match(html, /<title>[^<]*Claude Code[^<]*Codex[^<]*<\/title>/i);
   assert.match(
     html,
-    /<meta name="description"\s+content="[^"]*29[^"]*Claude Code[^"]*three-skill Codex starter set[^"]*"/i,
+    /<meta name="description"\s+content="[^"]*32[^"]*Claude Code[^"]*three-skill Codex starter set[^"]*"/i,
   );
   assert.match(html, /<meta property="og:title" content="[^"]*Claude Code[^"]*Codex/i);
   assert.match(html, /<meta name="twitter:title" content="[^"]*Claude Code[^"]*Codex/i);
@@ -1612,14 +1617,14 @@ test('search, social, and structured metadata name both runtime surfaces', () =>
   assert.doesNotMatch(html, /\/og-card\.png/);
   assert.match(
     html,
-    /<meta property="og:image:alt" content="orion-skills: 29 Claude Code skills and a three-skill Codex starter set"/i,
+    /<meta property="og:image:alt" content="orion-skills: 32 Claude Code skills and a three-skill Codex starter set"/i,
   );
 
   const { library, codexStarter } =
     assertStructuredDataRuntimeBoundaries(document);
   assertStructuredDataRuntimeBoundaries(noScriptDocument);
   assert.equal(library.runtimePlatform, 'Claude Code');
-  assert.match(library.description, /29[^.]*Claude Code/i);
+  assert.match(library.description, /32[^.]*Claude Code/i);
   assert.doesNotMatch(library.description, /Codex/i);
   assert.deepEqual(library.hasPart, { '@id': codexStarter['@id'] });
 
@@ -1665,8 +1670,8 @@ test('the reviewed HTML, stylesheet, and hydrated runtime bytes stay content-bou
   );
 
   assert.deepEqual(actualDigests, {
-    "index.html": "ec2794ca8b9c5fd998162fc15fc8f43806375aa8c623ad3a1038692645d39215",
-    "assets/index-DVJgQeu1.js": "e396233da39d2a3436f4278874d5b0b91f69e4251b0bfa20344958d02d93fc7f",
+    "index.html": "49922bf304d0339b1f7ce47c0a4b3af51c749989c127eb2fa538c8d841955624",
+    "assets/index-Dr0fny0v.js": "749b143ff870f8d9581a487d5f32a4eb7095beeccc958d03d37b8a217f670a9a",
     "assets/index-CeTIpKDn.css": "e2edeb3c91740439c2e890bdfc9d3df8e26a079488e8dc4423faa2e3de41f528"
   }
   );
@@ -1730,7 +1735,7 @@ test('the readonly claim stays scoped to the tools the hook actually matches', (
   // change. Grounding: orion-skills main carries
   // skills/readonly/hooks/pretooluse-readonly.sh plus selftest.py.
   // Grounded, and specific about WHICH ref: v0.5.0 (2026-07-08, only SKILL.md)
-  // predates the hook; v0.6.0 first shipped it and v0.7.1 retains it.
+  // predates the hook; v0.6.0 first shipped it and v1.0.0 retains it.
   // Saying "ships in the repo" next to a
   // release call-to-action that lacks it would send a reader to an artifact
   // that cannot do what the sentence promises.
