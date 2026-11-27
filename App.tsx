@@ -28,7 +28,7 @@ const BUDGET_MODES: BudgetMode[] = [
     barClass: 'bg-[#4ADE80]',
     pctLabel: '13.5%',
     savedLabel: '7,350 tokens saved',
-    note: 'Only 29 short descriptions live in the base prompt; one matching SKILL.md loads when invoked.',
+    note: 'Only 32 short descriptions live in the base prompt; one matching SKILL.md loads when invoked.',
   },
   {
     id: 'starter',
@@ -43,7 +43,7 @@ const BUDGET_MODES: BudgetMode[] = [
   },
   {
     id: 'preloaded',
-    label: 'Preloaded (All 29)',
+    label: 'Preloaded (All 32)',
     tokens: 8500,
     budget: 8500,
     widthClass: 'w-full',
@@ -84,10 +84,13 @@ const SKILL_CATEGORIES: Record<string, SkillCategoryId> = {
   'document-release': 'ops',
   delegate: 'ops',
   grokbot: 'ops',
+  'orion-web-director': 'workflow',
+  'orion-frontend-builder': 'workflow',
+  'web-render-reviewer': 'verification',
 };
 
 const CATEGORY_OPTIONS: Array<{ id: SkillCategoryId; label: string }> = [
-  { id: 'all', label: 'All (29)' },
+  { id: 'all', label: 'All (32)' },
   { id: 'gates', label: 'Gates & Safety' },
   { id: 'verification', label: 'Verification & QA' },
   { id: 'workflow', label: 'Workflow & Research' },
@@ -257,7 +260,7 @@ const App: React.FC = () => {
                 href="#catalog"
                 className="inline-flex min-h-[44px] items-center rounded px-3 font-mono text-xs text-[#CBD5E1] transition-colors hover:bg-[#091638] hover:text-[#FFC08B]"
               >
-                Catalog (29)
+                Catalog (32)
               </a>
             </nav>
           </div>
@@ -465,7 +468,7 @@ const App: React.FC = () => {
 
         {/* Interactive Skill Catalog Filter & Search */}
         <section id="catalog" aria-labelledby="heading-catalog">
-          <SectionTitle index="03" title="All 29 Claude Code skills" id="heading-catalog" />
+          <SectionTitle index="03" title="All 32 Claude Code skills" id="heading-catalog" />
           <p className="mb-5 text-sm leading-relaxed text-[#CBD5E1]">
             Codex starter set:{' '}
             <span className="font-mono text-[#F8FAFC]">{codexStarter.join(' · ')}</span>
@@ -485,7 +488,7 @@ const App: React.FC = () => {
                   type="search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search 29 skills by name or discipline..."
+                  placeholder="Search 32 skills by name or discipline..."
                   className="min-h-[44px] w-full rounded-md border border-[#64748B] bg-[#040D24] px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#94A3B8]"
                 />
               </div>
